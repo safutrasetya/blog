@@ -12,7 +12,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+//LINE SAFUTRA
+Route::get('/profil', function () {
+    return view('profil');
 });
+Route::get('/', function () {
+    return view('profil');
+});
+//LINE IMMANUEL
+
+//LINE YEHEXKIEL
+
+//LINE RIZKI
+
+//LINE BANG ZAID
