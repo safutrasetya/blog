@@ -9,22 +9,54 @@
     <title>Profil</title>
   </head>
   <body class="bg-dark">
-    <div class="container bg-primary p-3 h-100" style="height: 500px;">
-      <div class="jumbotron bg-secondary mx-auto p-5"style="height: 500px;">
+    <div class="container bg-primary p-3 h-100" style="height: 600px;">
+      <div class="jumbotron bg-secondary mx-auto p-5" style="height: 600px;">
         <div class="mx-auto text-center">
           <h1>Profil TEST USER</h1>
-          <div class="card">
-            <!--TAROH FOTO PROFIL DISINI-->
-            <div class="card-body">
-              <div class="text-left">
-                <p class="" style="font-size:25px">Nama : TEST USER</p>
-                <p class="" style="font-size:25px">Email : testusser@gmail.com</p>
-                <p class="" style="font-size:25px">Level : 1</p>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card mx-auto">
+                <div class="card-header">
+                  <div class="text-left">
+                    <img src="img/pfp1.jpg" class="rounded-circle" alt="PFP" width="150px" height="150px">
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="text-left">
+                    <table style="font-size:25px">
+                      <tr>
+                        <td>Nama </td><td>: Test USER</td>
+                      </tr>
+                      <tr>
+                        <td>Email </td><td>: testuser@gmail.com</td>
+                      </tr>
+                      <tr>
+                        <td>Level </td><td>: 1</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="row">
+                    <div class="col-sm-8 text-left">
+                      <button class="btn btn-outline-primary">Edit Profil</button>
+                      <button class="btn btn-success">Show Favorites</button>
+                    </div>
+                    <div class="col-sm-4 text-right">
+                      <button class="btn btn-danger">Logout</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                </div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </body>
