@@ -9,10 +9,12 @@
     <title>Profil</title>
   </head>
   <body class="bg-dark">
-    <div class="container bg-primary p-3 h-100" style="height: 600px;">
-      <div class="jumbotron bg-secondary mx-auto p-5" style="height: 600px;">
+    <div class="container bg-primary p-3 h-100" style="height: 750px;">
+      <div class="jumbotron bg-secondary mx-auto p-5" style="height: 750px;">
+        <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
+          <h1 class="text-center">Profil TEST USER</h1>
+        </div>
         <div class="mx-auto text-center">
-          <h1>Profil TEST USER</h1>
           <div class="row">
             <div class="col-sm-6">
               <div class="card mx-auto">
@@ -51,7 +53,22 @@
             </div>
             <div class="col-sm-6">
               <div class="card">
+                <div class="card-header">
+                  <h3>Terakhir di sukai</h3>
+                </div>
                 <div class="card-body">
+                  <div class="card my-3">
+                    <img class="card-img-top" src="img/cubes_structure_tangled_150971_3840x2400.jpg" style="width:auto; height:150px;">
+                    <div class="text-left card-footer">
+                      <a href="#" class="stretched-link"><p style="font-size:20px">Test Judul Artikel</p></a>
+                    </div>
+                  </div>
+                  <div class="card my-3">
+                    <img class="card-img-top" src="img/cubes_structure_tangled_150971_3840x2400.jpg" style="width:auto; height:150px;">
+                    <div class="text-left card-footer">
+                      <a href="#" class="stretched-link"><p style="font-size:20px">Test Judul Artikel</p></a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
