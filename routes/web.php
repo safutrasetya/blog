@@ -20,7 +20,9 @@ Route::get('/', function () {
     return view('profil');
 });
 //LINE IMMANUEL
-
+Route::get('/artikel',function(){
+  return view('artikel');
+});
 //LINE YEHEXKIEL
 
 //LINE RIZKI

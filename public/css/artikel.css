@@ -1,0 +1,56 @@
+.image{
+  width:60%;
+  margin-top: -8px;
+  margin-bottom: 10px;
+  margin-left: 260px;
+  object-fit: cover;
+}
+.IsiArtikel
+{
+  text-align: justify;
+}
+.ArtikelLain
+{
+  margin-top: 10px;
+}
+.thumbnail
+{
+  width: 300px;
+  height: 300px;
+}
+.deskripsi-artikel
+{
+  margin-top: -120px
+}
+.icon
+{
+  margin-left: 400px;
+  width: 80%;
+}
+/* .btn{
+    background: transparent;
+    border: none;
+    margin: 87px;
+    font-size: 88px;
+    outline: none;
+    color: grey;
+} */
+.btn{
+    display: flex;
+    background: transparent;
+    border: none;
+    margin-top: -3px;
+    margin-left: -0px;
+    font-size: 35px;
+    outline: none;
+    color: black;
+}
+
+.btn i:hover{
+    cursor: pointer;
+}
+*{
+    margin: 0;
+    padding: 0;
+
+}
