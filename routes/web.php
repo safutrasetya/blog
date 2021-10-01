@@ -24,7 +24,11 @@ Route::get('/artikel',function(){
   return view('artikel');
 });
 //LINE YEHEXKIEL
-
+Route::get('/beranda',function(){
+  return view('beranda');
+});
 //LINE RIZKI
-
+Route::get('/favorit',function(){
+  return view('favorit');
+});
 //LINE BANG ZAID
