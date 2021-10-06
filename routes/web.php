@@ -19,6 +19,12 @@ Route::get('/profil', function () {
 Route::get('/', function () {
     return view('profil');
 });
+Route::get('/login', function () {
+    return view('login');
+});
+Route::get('/daftar', function () {
+    return view('daftar');
+});
 //LINE IMMANUEL
 Route::get('/artikel',function(){
   return view('artikel');
