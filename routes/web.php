@@ -25,6 +25,9 @@ Route::get('/login', function () {
 Route::get('/daftar', function () {
     return view('daftar');
 });
+Route::get('/artikelbuat', function () {
+    return view('artikel_buat');
+});
 //LINE IMMANUEL
 Route::get('/artikel',function(){
   return view('artikel');
