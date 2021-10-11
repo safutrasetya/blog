@@ -29,7 +29,16 @@ Route::get('/artikelbuat', function () {
     return view('artikel_buat');
 });
 Route::get('/adminakun', function () {
-    return view('admin_akun');
+    return view('adminakun');
+});
+Route::get('/adminartikel', function () {
+    return view('adminartikel');
+});
+Route::get('/adminauthor', function () {
+    return view('adminauthor');
+});
+Route::get('/artikeledit', function () {
+    return view('artikel_edit');
 });
 //LINE IMMANUEL
 Route::get('/artikel',function(){
