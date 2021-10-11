@@ -28,6 +28,9 @@ Route::get('/daftar', function () {
 Route::get('/artikelbuat', function () {
     return view('artikel_buat');
 });
+Route::get('/adminakun', function () {
+    return view('admin_akun');
+});
 //LINE IMMANUEL
 Route::get('/artikel',function(){
   return view('artikel');
