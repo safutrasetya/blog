@@ -52,4 +52,7 @@ Route::get('/beranda',function(){
 Route::get('/favorit',function(){
   return view('favorit');
 });
+Route::get('/editakun',function(){
+  return view('editakun');
+});
 //LINE BANG ZAID
