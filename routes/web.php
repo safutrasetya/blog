@@ -28,6 +28,18 @@ Route::get('/daftar', function () {
 Route::get('/artikelbuat', function () {
     return view('artikel_buat');
 });
+Route::get('/adminakun', function () {
+    return view('adminakun');
+});
+Route::get('/adminartikel', function () {
+    return view('adminartikel');
+});
+Route::get('/adminauthor', function () {
+    return view('adminauthor');
+});
+Route::get('/artikeledit', function () {
+    return view('artikel_edit');
+});
 //LINE IMMANUEL
 Route::get('/artikel',function(){
   return view('artikel');
@@ -39,5 +51,8 @@ Route::get('/beranda',function(){
 //LINE RIZKI
 Route::get('/favorit',function(){
   return view('favorit');
+});
+Route::get('/editakun',function(){
+  return view('editakun');
 });
 //LINE BANG ZAID
