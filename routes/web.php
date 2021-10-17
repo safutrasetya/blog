@@ -55,4 +55,7 @@ Route::get('/favorit',function(){
 Route::get('/editakun',function(){
   return view('editakun');
 });
+Route::get('/penulis',function(){
+  return view('penulis');
+});
 //LINE BANG ZAID

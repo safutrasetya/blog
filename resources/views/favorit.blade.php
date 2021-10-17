@@ -76,50 +76,60 @@
 
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="pills-favorit-tab" data-bs-toggle="pill" data-bs-target="#pills-favorit" type="button" role="tab" aria-controls="pills-favorit" aria-selected="true">Favorites</button>
+                      <button class="nav-link active" id="pills-favorit-tab" data-bs-toggle="pill" data-bs-target="#pills-favorit" type="button" role="tab" aria-controls="pills-favorit" aria-selected="true">Artikel</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="pills-gallery-tab" data-bs-toggle="pill" data-bs-target="#pills-gallery" type="button" role="tab" aria-controls="pills-gallery" aria-selected="false">Galleries</button>
+                      <button class="nav-link" id="pills-gallery-tab" data-bs-toggle="pill" data-bs-target="#pills-gallery" type="button" role="tab" aria-controls="pills-gallery" aria-selected="false">Kategori</button>
                     </li>
-                  </ul>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link " id="pills-penulis-tab" data-bs-toggle="pill" data-bs-target="#pills-penulis" type="button" role="tab" aria-controls="pills-penulis" aria-selected="false">Penulis</button>
+                    </li>
+                </ul>
+
                   </div>
                   <div class="container">
                   <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-favorit" role="tabpanel" aria-labelledby="pills-favorit-tab">
-                        <p><span style="font-size: 28.5px;">Items </span>  <span style="font-size: 15px; color: #808688;">2</span> </p>
-                        <img src="img/03.jpg" style=" width: 280px; height: 250px;">
-                        <img src="img/02.jpg" style=" width: 200px; height: 200px;">
-                        <br>
-                        <br>
-
-                        <p><span style="font-size: 28.5px;">Themes </span>  <span style="font-size: 15px; color: #808688;">1</span> </p>
-                        <img src="img/03.jpg" style=" width: 280px; height: 250px;">
-                        <img src="img/02.jpg" style=" width: 150px; height: 200px;">
-                        <br>
-                        <br>
-
-                        <p><span style="font-size: 28.5px;">Topics </span>  <span style="font-size: 15px; color: #808688;">1</span> </p>
-                        <img src="img/02.jpg" style=" width: 280px; height: 250px;">
+                      <div class="card" style="width: 18rem;">
+                        <img src="/img/vvg.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h3 class="card-title">Vincent van Gogh</h3>
+                          <p class="card-text">Vincent Willem van Gogh was a Dutch Post-Impressionist painter who posthumously became one of the most famous and influential figures in Western art history.</p>
+                          <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+                        </div>
+                      </div>
                     </div>
+
                     <div class="tab-pane fade" id="pills-gallery" role="tabpanel" aria-labelledby="pills-gallery-tab">
-                        <p><span style="font-size: 28.5px;">Items </span>  <span style="font-size: 15px; color: #808688;">2</span> </p>
-                        <img src="img/02.jpg" style=" width: 200px; height: 200px;">
-                        <br>
-                        <br>
+                      <div class="card" style="width: 18rem;">
+                        <img src="/img/acr.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h3 class="card-title">Acrylic paint</h3>
+                          <p class="card-text">Although ‘acrylic’ has become a generic term for any synthetic paint medium, acrylics are a specific type of manmade polymer that has become standard in the commercial paint industry as well as widely used by artists from the mid-20th century.</p>
+                          <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+                        </div>
+                      </div>
+                    </div>
 
-                        <p><span style="font-size: 28.5px;">Themes </span>  <span style="font-size: 15px; color: #808688;">1</span> </p>
-                        <span>
-                            <img src="img/03.jpg" style=" width: 280px; height: 250px;">
-                            <img src="img/02.jpg" style=" width: 150px; height: 200px;">
-                            <img src="img/02.jpg" style=" width: 150px; height: 200px;">
-                        </span>
-                        <img src="img/02.jpg" style=" width: 150px; height: 200px;">
-                            <br>
-                        <br>
+                    <div class="tab-pane fade " id="pills-penulis" role="tabpanel" aria-labelledby="pills-penulis-tab">
+                      <div class="card" style="width: 18rem;">
+                        <img src="/img/shakespear.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h3 class="card-title">William Shakespear</h3>
+                          <p class="card-text"></p>
+                          <a href="#" class="btn btn-primary">Selengkapnya</a>
+                        </div>
+                      </div>
+                      <br><br>
+                      <div class="card" style="width: 18rem;">
+                        <img src="/img/conficius.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h3 class="card-title">Confocius</h3>
+                          <p class="card-text"></p>
+                          <a href="#" class="btn btn-primary">Selengkapnya</a>
+                        </div>
+                      </div>
 
-                        <p><span style="font-size: 28.5px;">Topics </span>  <span style="font-size: 15px; color: #808688;">1</span> </p>
-                        <img src="img/02.jpg" style=" width: 280px; height: 250px;">
-                        <img src="img/03.jpg" style=" width: 280px; height: 250px;">
                     </div>
         </div>
         <br><br><br><br>
