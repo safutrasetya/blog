@@ -27,13 +27,19 @@
                 <a class="nav-link active" href="adminartikel">Daftar Artikel</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Kategori</a>
+                <a class="nav-link" href="adminkategori">Kategori</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="adminauthor">Author</a>
               </li>
             </ul>
           </div>
+          <form class="form-inline" action="#" autocomplete="on">
+            <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Search...">
+            <button type="submit" class="btn btn-primary mb-2">Search</button>
+          </form>
+        </div>
+        <div class="row">
           <table class="table table-bordered">
             <thead>
               <tr>

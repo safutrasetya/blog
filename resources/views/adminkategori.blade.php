@@ -9,7 +9,7 @@
     <!--WYSIWYG script-->
     <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
     <!--END WYSIWYG-->
-    <title>Admin : Author</title>
+    <title>Admin : Kategori</title>
   </head>
   <body class="bg-dark">
     <div class="jumbotron p-3 h-100" style="height: 750px;">
@@ -27,10 +27,10 @@
                 <a class="nav-link" href="adminartikel">Daftar Artikel</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="adminkategori">Kategori</a>
+                <a class="nav-link active" href="adminkategori">Kategori</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="adminauthor">Author</a>
+                <a class="nav-link" href="adminauthor">Author</a>
               </li>
             </ul>
           </div>
@@ -43,10 +43,10 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th>Id</th>
+                <th>Id Kat</th>
                 <th>Nama</th>
-                <th>Email</th>
-                <th>No.HP</th>
+                <th>Gambar</th>
+                <th>Info</th>
                 <th>Jumlah Artikel</th>
                 <th>Action</th>
               </tr>
@@ -61,7 +61,7 @@
                 <td>
                   <form action="#">
                     <input type="text" value="" hidden>
-                    <button class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit Akun</button>
+                    <button class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit</button>
                     <button class="btn btn-danger"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</button>
                   </form>
                 </td>

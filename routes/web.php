@@ -40,6 +40,15 @@ Route::get('/adminauthor', function () {
 Route::get('/artikeledit', function () {
     return view('artikel_edit');
 });
+Route::get('/search', function () {
+    return view('search');
+});
+Route::get('/searchakun', function () {
+    return view('searchakun');
+});
+Route::get('/adminkategori', function () {
+    return view('adminkategori');
+});
 //LINE IMMANUEL
 Route::get('/artikel',function(){
   return view('artikel');
