@@ -42,7 +42,7 @@
                   <div class="row">
                     <div class="col-sm-8 text-left">
                       <button class="btn btn-outline-primary">Edit Profil</button>
-                      <button class="btn btn-success">Show Favorites</button>
+                      <button  class="btn btn-success" ><a style="text-decoration:none; color:white; " href="/favorit">Show Favorites</a> </button>
                     </div>
                     <div class="col-sm-4 text-right">
                       <button class="btn btn-danger">Logout</button>
