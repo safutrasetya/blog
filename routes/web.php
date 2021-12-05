@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\adminKategoriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,10 +70,10 @@ Route::get('/search', function () {
 Route::get('/searchakun', function () {
     return view('searchakun');
 });
-Route::get('/adminkategori', function () {
-    return view('adminkategori');
-});
-Route::get('/editakun/{idupdt}',[AdminAkunController::class, 'update']);
+Route::get('/adminkategori',[adminKategoriController::class,'index'])->name('adKategori');
+// Route::get('/adminkategori/delete{id}',[adminKategoriController::class,'destroy'])->name('adKategoridelete');
+Route::post('/deletekategori', [adminKategoriController::class, 'delete']);
+Route::get('/adminkategori/search',[adminKategoriController::class,'search']);
 //LINE IMMANUEL
 Route::get('/artikel',function(){
   return view('artikel');
