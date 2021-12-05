@@ -17,7 +17,7 @@ class adminKategoriController extends Controller
     {
         // $aKategoris = DB::select('SELECT * FROM table_kategori');
         // return view('adminKategori',['aKategoris'=>$aKategoris]);
-        $kategoris = adminKategori::all();
+        $kategoris = adminKategori::paginate(5);
         return view('adminkategori',['kategoris'=>$kategoris]);
     }
 
@@ -77,10 +77,9 @@ class adminKategoriController extends Controller
     }
     public function search(Request $request)
     {
-      // $search = $request->get('search');
-      //
-      // $aKategoris = DB::table('table_kategori')->where('id_kat','like',"%".$search."%");
-      // return view('adminkategori',['aKategoris'=>$aKategoris]);
+      $keyword = $request->cari;
+      $kategoris = adminKategori::where('nama_kat','like',"%".$keyword."%")->paginate(2);
+      return view('adminkategori',['kategoris'=>$kategoris]);
     }
     /**
      * Remove the specified resource from storage.
