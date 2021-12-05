@@ -70,10 +70,10 @@ Route::get('/search', function () {
 Route::get('/searchakun', function () {
     return view('searchakun');
 });
-Route::get('/adminkategori',[adminKategoriController::class,'index'])->name('adKategori');
+Route::get('/adminkategori',[adminKategoriController::class,'index']);
 // Route::get('/adminkategori/delete{id}',[adminKategoriController::class,'destroy'])->name('adKategoridelete');
 Route::post('/deletekategori', [adminKategoriController::class, 'delete']);
-Route::get('/adminkategori/search',[adminKategoriController::class,'search']);
+Route::get('searchkategori',[adminKategoriController::class,'search'])->name('search');
 //LINE IMMANUEL
 Route::get('/artikel',function(){
   return view('artikel');

@@ -22,9 +22,9 @@
               </li>
             </ul>
           </div>
-          <form class="form-inline" action="/adminkategori/search" autocomplete="on" method="GET">
-            <input type="text" name="search" class="form-control mb-2 mr-sm-2" placeholder="Search...">
-            <button type="submit" class="btn btn-primary mb-2" value="SEARCH">Search</button>
+          <form class="form-inline" action="searchkategori" autocomplete="on" method="GET">
+            <input type="text" name="cari" id="search" class="form-control mb-2 mr-sm-2" value="{{ request('cari') }}" placeholder="Nama Kategori...">
+            <button type="submit" class="btn btn-primary mb-2" value="cari">Search</button>
           </form>
         </div>
         <div class="row">
@@ -84,6 +84,13 @@
             </tbody>
           </table>
         </div>
+        <div class="box-footer">
+          <div class="pull-left">
+            <ul class="pagination no-margin">
+              {{$kategoris->links("pagination::bootstrap-4")}}
+            </ul>
+        </div>
+      </div>
       </div>
     </div>
     <script>
