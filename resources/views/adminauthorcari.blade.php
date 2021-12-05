@@ -53,7 +53,7 @@
         </ul>
       </div>
       <div class="col-sm-4">
-        <form class="" action="{{url('/adminauthcari')}}" method="GET">
+        <form class="" action="" method="GET">
           <div class="row">
             <div class="col-sm-8">
               <input name="searchi" type="text" class="form-control mb-2" placeholder="Search...">
@@ -79,7 +79,7 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($listauthors as $author)
+          @foreach($hasil as $author)
           <tr>
             <td>{{$author->id_author}}</td>
             <td>{{$author->nama}}</td>

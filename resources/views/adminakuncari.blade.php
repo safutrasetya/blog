@@ -54,9 +54,9 @@
   </div>
 </div>
 <div class="jumbotron p-3 h-100" style="height: 750px;">
-  <div class="jumbotron bg-light mx-auto p-5" style="height: 750px;">
+  <div class="jumbotron bg-secondary mx-auto p-5" style="height: 750px;">
     <div class="mx-auto text-center mb-3" style="margin-top:-25px;">
-      <h1 class="text-center">Admin Control Room</h1>
+      <h1 class="text-center text-light">Admin Control Room</h1>
     </div>
     @include('flash-message')
     <div class="row">
@@ -89,8 +89,8 @@
         </form>
       </div>
     </div>
-    <div class="row shadow p-2">
-      <table class="table table-bordered bg-info">
+    <div class="row">
+      <table class="table table-bordered">
         <thead>
           <tr>
             <th>Id Akun</th>
@@ -102,7 +102,7 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($listakuns as $akun)
+          @foreach($hasil as $akun)
           <tr>
             <td>{{$akun->id_akun}}</td>
             <td>{{$akun->nama}}</td>

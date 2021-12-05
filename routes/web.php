@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //LINE SAFUTRA
+use App\Http\Controllers\AdminAkunController;
+use App\Http\Controllers\AdminArtikelController;
+use App\Http\Controllers\AdminAuthorController;
 Route::get('/profil', function () {
     return view('profil');
 });
@@ -31,12 +34,32 @@ Route::get('/artikelbuat', function () {
 Route::get('/adminakun', function () {
     return view('adminakun');
 });
+Route::resource('/adminakun',AdminAkunController::class);
+Route::post('deleteakun', [AdminAkunController::class, 'delete']);
+Route::post('updatelvl', [AdminAkunController::class, 'updatelvl']);
+Route::get('/adminakuncari', function () {
+    return view('adminakuncari');
+});
+Route::get('/adminakuncari', [AdminAkunController::class, 'searchakun']);
+
 Route::get('/adminartikel', function () {
     return view('adminartikel');
 });
+Route::resource('/adminartikel',AdminArtikelController::class);
+Route::resource('/adminartikelcari',AdminArtikelController::class);
+Route::get('/adminartcari', [AdminArtikelController::class, 'tampilkatmodal']);
+Route::post('deleteartikel', [AdminArtikelController::class, 'deleteart']);
+Route::post('updtartkat', [AdminArtikelController::class, 'updtartkat']);
+Route::get('/adminartcari', function () { return view('adminartcari');});
+Route::get('/adminartcari', [AdminArtikelController::class, 'searchart']);
+
 Route::get('/adminauthor', function () {
     return view('adminauthor');
 });
+Route::resource('/adminauthor',AdminAuthorController::class);
+Route::post('deleteauthor', [AdminAuthorController::class, 'deleteauth']);
+Route::get('/adminauthcari', function () { return view('adminauthorcari');});
+Route::get('/adminauthcari', [AdminAuthorController::class, 'searchauth']);
 Route::get('/artikeledit', function () {
     return view('artikel_edit');
 });
@@ -49,6 +72,7 @@ Route::get('/searchakun', function () {
 Route::get('/adminkategori', function () {
     return view('adminkategori');
 });
+Route::get('/editakun/{idupdt}',[AdminAkunController::class, 'update']);
 //LINE IMMANUEL
 Route::get('/artikel',function(){
   return view('artikel');
@@ -61,9 +85,7 @@ Route::get('/beranda',function(){
 Route::get('/favorit',function(){
   return view('favorit');
 });
-Route::get('/editakun',function(){
-  return view('editakun');
-});
+
 Route::get('/penulis',function(){
   return view('penulis');
 });

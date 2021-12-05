@@ -57,9 +57,9 @@
   </div>
 </div>
 <div class="jumbotron p-3 h-100" style="height: 750px;">
-  <div class="jumbotron bg-light mx-auto p-5">
-    <div class="mx-auto text-center mb-3" style="margin-top:-25px;">
-      <h1 class="text-center">Admin Control Room</h1>
+  <div class="jumbotron bg-secondary mx-auto p-5">
+    <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
+      <h1 class="text-center text-light">Admin Control Room</h1>
     </div>
     @include('flash-message')
     <div class="row">
@@ -92,8 +92,8 @@
         </form>
       </div>
     </div>
-    <div class="row shadow p-2">
-      <table class="table table-bordered bg-info">
+    <div class="row">
+      <table class="table table-bordered">
         <thead>
           <tr>
             <th>Id artikel</th>
@@ -106,7 +106,7 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($listarts as $art)
+          @foreach($hasil as $art)
           <tr>
             <td>{{$art->id_artikel}}</td>
             <td>{{$art->nama_author}}</td>
@@ -119,7 +119,7 @@
             <td>{{$art->nama_kat}}</td>
             <td>{{$art->gambar_art}}</td>
             <td>
-              <button class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#modalupdtartkat" data-bs-whatever="{{$art->id_artikel}}" judulart="{{$art->judul}}" kategoriart="{{$art->id_kat}}"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit</button>
+              <button class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#modalupdtartkat" data-bs-whatever="{{$art->id_artikel}}" judulart="{{$art->judul}}" kategoriart="{{$art->id_kat}}"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit Artikel</button>
               <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalhapusart" data-bs-whatever="{{$art->id_artikel}}" judulart="{{$art->judul}}"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</button>
             </td>
           </tr>
@@ -130,9 +130,6 @@
   </div>
 </div>
 <script>
-  jQuery(function($) {
-    $('#divAlert').delay(1750).fadeOut(400);
-  });
   var artkatmodal = document.getElementById('modalupdtartkat')
   artkatmodal.addEventListener('show.bs.modal', function (event) {
     // Button that triggered the modal
@@ -148,10 +145,9 @@
     var modalTitle = artkatmodal.querySelector('.waaw')
     var modalBodyInput = artkatmodal.querySelector('.modal-body input')
 
-    modalTitle.textContent = 'Ubah Kategori Artikel : ' + judulart + '?'
+    modalTitle.textContent = 'Ubah Kategori Artikel: ' + judulart + '?'
     modalBodyInput.value = idupdtartkat
     document.getElementById("updtartkat").value = idkategoriart;
-
   });
 </script>
 <script>
