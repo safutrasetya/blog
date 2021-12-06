@@ -21,6 +21,7 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\FavoritController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\ArtikelAuthorController;
+use App\Http\Controllers\LoginController;
 // Route::get('/profil', function () {
 //     return view('profil');
 // });
@@ -28,12 +29,16 @@ Route::get('/', function () {
     return view('profil');
 });
 Route::resource('/profil',ProfilController::class);
-Route::get('/login', function () {
-    return view('login');
-});
-Route::get('/daftar', function () {
-    return view('daftar');
-});
+// Route::get('/login', function () {
+//     return view('login');
+// });
+// Route::get('/daftar', function () {
+//     return view('daftar');
+// });
+Route::post('/daftar', [LoginController::class, 'store']);
+Route::get('/daftar', [LoginController::class, 'HalamanDaftar']);
+Route::get('/login', [LoginController::class, 'HalamanLogin']);
+Route::post('/login', [LoginController::class, 'login']);
 Route::get('/artikelbuat', function () {
     return view('artikel_buat');
 });

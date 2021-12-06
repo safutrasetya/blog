@@ -9,48 +9,58 @@
     <title>Sign Up</title>
   </head>
   <body class="bg-dark">
-    <div class="bg-dark p-3 h-100" style="height: 750px;">
+    <div>
       <div class="row">
-        <div class="col-sm-7">
-          <p>enter image here</p>
+        <div class="col-4">
         </div>
-        <div class="col-sm-5">
-          <div class="jumbotron" style="height: 675px; padding-top:-50px;">
+        <div class="col-5">
             <div class="card mx-auto">
               <div class="card-header">
                 <p style="font-family:serif; font-size:50px;">Be-Blog</p>
               </div>
               <div class="card-body">
                 <div class="text-left">
-                  <form action="#" class="needs-validation" novalidate>
-                    <div class="form-group">
-                      <label for="nama">Enter your Name (this will be your username): </label>
-                      <input type"text" name="nama" class="form-control" placeholder="Enter Email" id="nama" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="email">Enter your Email : </label>
-                      <input type"email" name="email" class="form-control" placeholder="Enter Email" id="email" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="pwd">Enter new Password:</label>
-                      <input type="password" name="password" class="form-control" placeholder="Enter password" id="pwd" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="pwd-ulang">Re-enter Password:</label>
-                      <input type="password" name="password-ulang" class="form-control" placeholder="Enter password" id="pwd" required>
-                    </div>
-                    <div class="form-group form-check">
-                      <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox"> Remember me
-                      </label>
-                    </div>
+                  <form action="/daftar" method="post" >
+                 @csrf
+                 <div s class="form-group">
+                     <label for="nama">Nama</label>
+                     <input  type="text" class="form-control mt-1 @error('nama') is-invalid @enderror"  name="nama"  id="nama"  value="{{ old('nama') }}">
+                     @error('nama')
+                     <div class="invalid-feedback">{{ $message }}</div>
+                 @enderror
+                 </div>
 
-                </div>
-              </div>
-              <div class="card-footer">
-                <a href="login"><button type="button" class="btn btn-secondary">Back to login</button></a>
-                <button type"submit" class="btn btn-primary">Sign Up!</button>
-                  </form>
+                 <div s class="form-group">
+                     <label for="email" >Email</label>
+                     <input value="{{ old('email') }}" type="text" class="form-control mt-1 @error('email') is-invalid @enderror " name="email"  id="email">
+                     @error('email')
+                     <div class="invalid-feedback">{{ $message }}</div>
+                 @enderror
+                 </div>
+                 <div s class="form-group">
+                     <label for="telpon" >No. Handphone</label>
+                     <input value="{{ old('telpon') }}" type="text" class="form-control mt-1 @error('telpon') is-invalid @enderror " name="telpon"  id="telpon">
+                     @error('telpon')
+                     <div class="invalid-feedback">{{ $message }}</div>
+                 @enderror
+                 </div>
+                 <div s class="form-group">
+                     <label for="password" >Kata Sandi</label>
+                     <input value="{{ old('password') }}"  type="password" class="form-control mt-1 @error('password') is-invalid @enderror " name="password"  id="password">
+                     @error('password')
+                     <div class="invalid-feedback">{{ $message }}</div>
+                 @enderror
+                 </div>
+                 <div s class="form-group">
+                     <label for="confirm-password" >Konfirmasi Kata Sandi</label>
+                     <input value="" type="password" class="form-control mt-1 @error('confirm-password') is-invalid @enderror " name="confirm-password"  id="confirm-password">
+                     @error('confirm-password')
+                     <div class="invalid-feedback">{{ $message }}</div>
+                 @enderror
+                 </div>
+                 Sudah Punya Akun? <a  href="/login">Login</a>
+                 <button  class="btn btn-primary mt-2 mb-4 ml-5" type="submit">Register</button>
+             </form>
               </div>
             </div>
           </div>

@@ -5,42 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--BOOSTRAP CSS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     <!--END BOOSTRAP CSS-->
     <title>Login</title>
   </head>
+  <body class="bg-dark">
+    <div class=" " >
+      <div class="row">
+        <div class="col-4">
 
-  <body>
-    <div class="container">
-      <div class="col-6">
-      </div>
-      <div class="col-6 d-flex justify-content-center">
-        <form action="/admin/tambahSuplier" method="post" >
-                    @csrf
-                    <div s class="form-group">
-                        <label for="nama">NAMA SUPPLIER</label>
-                        <input  type="text" class="form-control mt-1 @error('nama') is-invalid @enderror"  name="nama"  id="nama"  value="{{ old('nama') }}">
-                        @error('nama')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                    </div>
+        </div>
+        <div class="col-5 bg-dark " >
+            <div class="card mx-auto" >
+              <div class="card-header" >
+                <p style="font-family:serif; font-size:50px;">Be-Blog</p>
+              </div>
+              <div class="card-body">
+                <div class="text-left">
+                  <form action="/login" method="post" >
+                 @csrf
+                 <div s class="form-group">
+                     <label for="email">Email</label>
+                     <input  type="text" class="form-control mt-1 @error('email') is-invalid @enderror"  name="email"  id="email"  value="{{ old('email') }}">
+                     @if(session('alert'))
+                     <small style="color:red;">
+                       {{session('alert')}}
+                     </small>
+                     @endif
+                 </div>
 
-                    <div s class="form-group">
-                        <label for="alamat" >ALAMAT</label>
-                        <input value="{{ old('alamat') }}" type="text" class="form-control mt-1 @error('alamat') is-invalid @enderror " name="alamat"  id="alamat">
-                        @error('alamat')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                    </div>
-                    <div s class="form-group">
-                        <label for="telpon" >NOMOR TELPON  </label>
-                        <input  data-toggle="tooltip" data-placement="bottom" title="Format 08XXXXXXXXXXX / +628XXXXXXXXXXX / 628XXXXXXXXXXX " type="tel"  pattern="^(\+62|62|0)8[1-9][0-9]{6,10}$"  required value="{{ old('telpon') }}"  class="form-control mt-1 @error('telpon') is-invalid @enderror" name="telpon"  id="telpon">
-                        @error('telpon')>
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                    </div>
-                    <button  class="btn btn-primary mt-2 mb-4" type="submit">Tambah!</button>
-                </form>
+                 <div s class="form-group">
+                     <label for="password" >Password</label>
+                     <input value="{{ old('password') }}" type="password" class="form-control mt-1 @error('password') is-invalid @enderror " name="password"  id="password">
+                     @if(session('alert2'))
+                     <small style="color:red;">
+                       {{session('alert2')}}
+                     </small>
+                     @endif
+                 </div>
+                 Belum Punya Akun ? <a  href="/daftar"> Register</a>
+                 <button  class="btn btn-primary mt-2 mb-4 ml-5" type="submit">Login</button>
+             </form>
+              </div>
+          </div>
+        </div>
+        </div>
       </div>
     </div>
 
