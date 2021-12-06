@@ -89,6 +89,7 @@ Route::get('/artikel',function(){
   return view('artikel');
 });
 //LINE YEHEXKIEL
+Route::get('/authorartikel/{idauthor}', [ArtikelAuthorController::class, 'authorartikel']);
 //LINE RIZKI
 // Route::get('/favorit',function(){
 //   return view('favorit');
@@ -104,5 +105,3 @@ Route::get('/penulis',function(){
 // Route::get('/author/artikel',function(){
 //   return view('authorartikel');
 // });
-
-Route::get('/authorartikel/{idauthor}', [ArtikelAuthorController::class, 'authorartikel']);
