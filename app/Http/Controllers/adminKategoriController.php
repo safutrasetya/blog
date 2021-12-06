@@ -63,7 +63,8 @@ class adminKategoriController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kategoris = DB::table('table_kategori')->where('id_kat',$id)->get();
+        return view('editkategori',['kategoris'=>$kategoris]);
     }
 
     /**
@@ -73,9 +74,32 @@ class adminKategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $req)
     {
-        //
+      $req->validate([
+        'gambar'=>'mimes:jpg,jpeg,png'
+      ]);
+
+      $kategori = DB::table('table_kategori')->where('id_kat',$req->id);
+      if($req->file('gambar')==""){
+          $kategori->update([
+            'nama_kat'=>$req->nama,
+            'deskripsi_kat'=>$req->deskripsi
+          ]);
+      }else{
+          // $gambar=$req->file('gambar');
+          // $gambar->storeAs('public/img',$gambar->hashName());
+            $gambar = time().'.'.$req->gambar->extension();
+            $req->gambar->move(public_path('img'),$gambar);
+
+        $kategori->update([
+          'gambar' =>$gambar,
+          'nama_kat'=>$req->nama,
+          'deskripsi_kat'=>$req->deskripsi
+        ]);
+      }
+      return redirect('adminkategori');
+
     }
     public function search(Request $request)
     {
