@@ -17,12 +17,16 @@ use App\Http\Controllers\adminKategoriController;
 use App\Http\Controllers\AdminAkunController;
 use App\Http\Controllers\AdminArtikelController;
 use App\Http\Controllers\AdminAuthorController;
-Route::get('/profil', function () {
-    return view('profil');
-});
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\FavoritController;
+use App\Http\Controllers\BerandaController;
+// Route::get('/profil', function () {
+//     return view('profil');
+// });
 Route::get('/', function () {
     return view('profil');
 });
+Route::resource('/profil',ProfilController::class);
 Route::get('/login', function () {
     return view('login');
 });
@@ -61,9 +65,13 @@ Route::resource('/adminauthor',AdminAuthorController::class);
 Route::post('deleteauthor', [AdminAuthorController::class, 'deleteauth']);
 Route::get('/adminauthcari', function () { return view('adminauthorcari');});
 Route::get('/adminauthcari', [AdminAuthorController::class, 'searchauth']);
+
+Route::resource('/favorit',FavoritController::class);
 Route::get('/artikeledit', function () {
     return view('artikel_edit');
 });
+Route::resource('/beranda',BerandaController::class);
+Route::get('/authorprofile/{idauthor}', [ProfilController::class, 'authorprofil']);
 Route::get('/search', function () {
     return view('search');
 });
@@ -79,13 +87,10 @@ Route::get('/artikel',function(){
   return view('artikel');
 });
 //LINE YEHEXKIEL
-Route::get('/beranda',function(){
-  return view('beranda');
-});
 //LINE RIZKI
-Route::get('/favorit',function(){
-  return view('favorit');
-});
+// Route::get('/favorit',function(){
+//   return view('favorit');
+// });
 
 Route::get('/penulis',function(){
   return view('penulis');

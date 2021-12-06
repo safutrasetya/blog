@@ -14,21 +14,15 @@
           <div class="card mx-auto">
             <div class="card-header">
               <div class="text-center">
-                <img src="img/pfp1.jpg" class="rounded-circle" alt="PFP" width="150px" height="150px">
+                <img src="/img/pfp1.jpg" class="rounded-circle" alt="PFP" width="150px" height="150px">
               </div>
             </div>
             <div class="card-body">
               <div class="text-left">
-                @foreach($dataakun as $dataakuns)
+                @foreach($dataauthor as $dataakuns)
                 <table style="font-size:25px">
                   <tr>
                     <td>Nama </td><td>: {{$dataakuns->nama}}</td>
-                  </tr>
-                  <tr>
-                    <td>Email </td><td>: {{$dataakuns->email}}</td>
-                  </tr>
-                  <tr>
-                    <td>Level </td><td>: {{$dataakuns->level}}</td>
                   </tr>
                 </table>
                 @endforeach
@@ -38,7 +32,7 @@
               <div class="row">
                 <div class="col-sm-8 text-left">
                   <a href=""><button class="btn btn-outline-primary">Edit Profil</button></a>
-                  <a style="text-decoration:none; color:white; " href="/favorit"><button  class="btn btn-success" >Show Favorites</button></a>
+                  <a style="text-decoration:none; color:white; " href=""><button  class="btn btn-success" >Tampilkan semua artikel</button></a>
                 </div>
                 <div class="col-sm-4">
                   <button class="btn btn-danger float-end">Logout</button>
@@ -50,23 +44,17 @@
         <div class="col-sm-6">
           <div class="card">
             <div class="card-header">
-              <h3>Terakhir di sukai</h3>
+              <h3>Artikel Terakhir</h3>
             </div>
             <div class="card-body">
-              @foreach($datafav as $datafavs)
+              @foreach($dataart as $dataartauth)
               <div class="card my-3">
-                <img class="card-img-top" src="img/{{$datafavs->gambar_art}}" style="width:auto; height:150px;">
+                <img class="card-img-top" src="/img/{{$dataartauth->gambar_art}}" style="width:auto; height:150px;">
                 <div class="text-left card-footer">
-                  <a href="#" class="stretched-link"><p style="font-size:20px">{{$datafavs->judul}}</p></a>
+                  <a href="#" class="stretched-link"><p style="font-size:20px">{{$dataartauth->judul}}</p></a>
                 </div>
               </div>
               @endforeach
-              <!-- <div class="card my-3">
-                <img class="card-img-top" src="img/cubes_structure_tangled_150971_3840x2400.jpg" style="width:auto; height:150px;">
-                <div class="text-left card-footer">
-                  <a href="#" class="stretched-link"><p style="font-size:20px">Test Judul Artikel</p></a>
-                </div>
-              </div> -->
             </div>
           </div>
         </div>

@@ -1,10 +1,14 @@
 @extends ('layout.template')
+@section('judulhal')
+<title>Admin Control</title>
+@endsection
 @section('content')
     <div class="jumbotron p-3 h-100" style="height: 750px;">
-      <div class="jumbotron bg-secondary mx-auto p-5 container-fluid">
-        <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
-          <h1 class="text-center text-light">Admin Control Room</h1>
+      <div class="jumbotron bg-light mx-auto p-5 container-fluid">
+        <div class="mx-auto text-center mb-3" style="margin-top:-25px;">
+          <h1 class="text-center">Admin Control Room</h1>
         </div>
+        @include('flash-message')
         <div class="row">
           <div class="col-sm-8">
             <ul class="nav nav-tabs nav-justified bg-light">
@@ -22,13 +26,21 @@
               </li>
             </ul>
           </div>
-          <form class="form-inline" action="searchkategori" autocomplete="on" method="GET">
-            <input type="text" name="cari" id="search" class="form-control mb-2 mr-sm-2" value="{{ request('cari') }}" placeholder="Nama Kategori...">
-            <button type="submit" class="btn btn-primary mb-2" value="cari">Search</button>
-          </form>
+          <div class="col-sm-4">
+            <form class="" action="{{url('/adminartcari')}}" method="GET">
+              <div class="row">
+                <div class="col-sm-8">
+                  <input name="searchi" type="text" class="form-control mb-2" placeholder="Search...">
+                </div>
+                <div class="col-sm-4">
+                  <button type="submit" class="btn btn-primary mb-2">Search</button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-        <div class="row">
-          <table class="table table-bordered text-justify">
+        <div class="row shadow p-2">
+          <table class="table table-bordered bg-info text-justify">
             <thead>
               <tr class="text-center">
                 <th>Id Kat</th>

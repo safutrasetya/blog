@@ -117,7 +117,7 @@
               </div>
             </td>
             <td>{{$art->nama_kat}}</td>
-            <td>{{$art->gambar_art}}</td>
+            <td><img src="img/{{$art->gambar_art}}" style="width: 150px;height: 150px;"></td>
             <td>
               <button class="btn btn-success mb-2" data-bs-toggle="modal" data-bs-target="#modalupdtartkat" data-bs-whatever="{{$art->id_artikel}}" judulart="{{$art->judul}}" kategoriart="{{$art->id_kat}}"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit Artikel</button>
               <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalhapusart" data-bs-whatever="{{$art->id_artikel}}" judulart="{{$art->judul}}"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</button>

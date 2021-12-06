@@ -22,7 +22,7 @@
       <a class="aboutus.php" style ="text-decoration: none; font-size: 16px; margin-top: 6px; margin-left: 10px; color: black" href="/favorit" class="fs-4" >Favorit</a>
       </div>
       <div>
-      <a class="aboutus.php" style ="text-decoration: none; font-size: 16px; margin-top: 6px; margin-left: 10px; color: black" href="" class="fs-4" >Admin Control</a>
+      <a class="aboutus.php" style ="text-decoration: none; font-size: 16px; margin-top: 6px; margin-left: 10px; color: black" href="/adminakun" class="fs-4" >Admin Control</a>
       </div>
       <form class="d-flex" style="margin-left: 10px;">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

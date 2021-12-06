@@ -10,7 +10,7 @@
       <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 </head>
-<body class="bg-dark">
+<body class="bg-light">
 
     @include('layout.navbar');
     @yield('content');
