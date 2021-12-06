@@ -19,7 +19,7 @@
           <p class="h5">{{$artikel->judul}}</p>
         </div>
         <div class="card-body">
-          <img src="img/{{$artikel->gambar_art}}" style="width: 670px; height: auto;">
+          <img src="/img/{{$artikel->gambar_art}}" style="width: 670px; height: auto;">
           <p class="isiartikel">{{$artikel->isi_art}}</p>
           <a href="">(Baca Selengkapnya...)</a>
         </div>
