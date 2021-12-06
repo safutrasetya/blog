@@ -26,7 +26,7 @@
       </div>
       <form class="d-flex" style="margin-left: 10px;">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit"><i class="fas fa-search fa-1x"></i></button>
+          <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
       <div style="margin-left:20px; margin-right:125px;" class="dropdown">
           <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 5px;">
