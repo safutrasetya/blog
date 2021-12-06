@@ -20,6 +20,7 @@ use App\Http\Controllers\AdminAuthorController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\FavoritController;
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\ArtikelAuthorController;
 // Route::get('/profil', function () {
 //     return view('profil');
 // });
@@ -72,6 +73,7 @@ Route::get('/artikeledit', function () {
 });
 Route::resource('/beranda',BerandaController::class);
 Route::get('/authorprofile/{idauthor}', [ProfilController::class, 'authorprofil']);
+
 Route::get('/search', function () {
     return view('search');
 });
@@ -87,6 +89,7 @@ Route::get('/artikel',function(){
   return view('artikel');
 });
 //LINE YEHEXKIEL
+Route::get('/authorartikel/{idauthor}', [ArtikelAuthorController::class, 'authorartikel']);
 //LINE RIZKI
 // Route::get('/favorit',function(){
 //   return view('favorit');
@@ -96,3 +99,9 @@ Route::get('/penulis',function(){
   return view('penulis');
 });
 //LINE BANG ZAID
+
+// Artikel author
+
+// Route::get('/author/artikel',function(){
+//   return view('authorartikel');
+// });

@@ -9,5 +9,5 @@ class adminKategori extends Model
 {
     use HasFactory;
 
-    protected $table ='table_kategori'; 
+    protected $table ='table_kategori';
 }
