@@ -11,6 +11,7 @@ class AdminArtikelController extends Controller
         $listart = DB::table('table_artikel')
                         ->leftJoin('table_kategori', 'table_artikel.id_kat', '=', 'table_kategori.id_kat')
                         ->rightJoin('table_author', 'table_artikel.id_author', '=', 'table_author.id_author')
+                        ->rightJoin('table_akun', 'table_author.id_akun_author', '=', 'table_akun.id_akun')
                         ->get();
         $listkat = DB::table('table_kategori')->get();
         return view('adminartikel', ['listarts'=>$listart,'allkategori'=>$listkat]);

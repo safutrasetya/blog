@@ -29,16 +29,13 @@ Route::get('/', function () {
     return view('profil');
 });
 Route::resource('/profil',ProfilController::class);
-// Route::get('/login', function () {
-//     return view('login');
-// });
-// Route::get('/daftar', function () {
-//     return view('daftar');
-// });
+Route::get('/editprofil',[ProfilController::class, 'editprofil']);
+Route::post('/updtprofil',[ProfilController::class, 'updateprofil'] );
 Route::post('/daftar', [LoginController::class, 'store']);
 Route::get('/daftar', [LoginController::class, 'HalamanDaftar']);
 Route::get('/login', [LoginController::class, 'HalamanLogin']);
 Route::post('/login', [LoginController::class, 'login']);
+
 Route::get('/artikelbuat', function () {
     return view('artikel_buat');
 });
@@ -67,11 +64,13 @@ Route::get('/adminartcari', [AdminArtikelController::class, 'searchart']);
 Route::get('/adminauthor', function () {
     return view('adminauthor');
 });
+
 Route::resource('/adminauthor',AdminAuthorController::class);
 Route::post('deleteauthor', [AdminAuthorController::class, 'deleteauth']);
 Route::get('/adminauthcari', function () { return view('adminauthorcari');});
 Route::get('/adminauthcari', [AdminAuthorController::class, 'searchauth']);
 
+Route::get('/adminkatcari', [adminKategoriController::class, 'search']);
 Route::resource('/favorit',FavoritController::class);
 Route::get('/artikeledit', function () {
     return view('artikel_edit');
@@ -86,6 +85,8 @@ Route::get('/searchakun', function () {
     return view('searchakun');
 });
 Route::get('/adminkategori',[adminKategoriController::class,'index']);
+Route::get('editkategori/{id}',[adminKategoriController::class,'edit']);
+Route::post('/updatekategori',[adminKategoriController::class,'update']);
 // Route::get('/adminkategori/delete{id}',[adminKategoriController::class,'destroy'])->name('adKategoridelete');
 Route::post('/deletekategori', [adminKategoriController::class, 'delete']);
 Route::get('searchkategori',[adminKategoriController::class,'search'])->name('search');

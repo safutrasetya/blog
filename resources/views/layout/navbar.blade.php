@@ -1,6 +1,6 @@
 
 <!-- navbar (tombol tambah artikel, beranda, favorit, admincontrol,search,profil(profil,logout)) -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top d-flex justify-content-start">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top d-flex justify-content-start" style="margin-bottom: 10px">
   <div class="container-fluid">
     <a class="aboutus.php" style ="text-decoration: none; font-size: 16px; margin-top: 6px; margin-left: 10px; color: black" href="/artikel" class="fs-4" >Art & Culture</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,13 +26,13 @@
       </div>
       <form class="d-flex" style="margin-left: 10px;">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit"><i class="fas fa-search fa-1x"></i></button>
+          <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
-      <div style="margin-left:20px; margin-right:125px;" class="dropdown">
+      <div style="margin-left:20px" class="dropdown">
           <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 5px;">
           <a href="aboutus.php"><i class="far fa-user-circle fa-2x" height="35px"></i></a>
           </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item" href="/profil">Profil</a></li>
             <li><a class="dropdown-item" href="/adminakun">Admin</a></li>
             <li><a class="dropdown-item" href="/functionlogout">Logout</a></li>
