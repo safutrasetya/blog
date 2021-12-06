@@ -25,7 +25,7 @@
     <div class="row m-2">
       <div class="card">
         <div class="card-header">
-          <p class="h5">By {{$artikel->nama_author}}</p>
+          <p class="h5">By {{$artikel->nama}}</p>
         </div>
         <div class="card-body">
           <img src="img/{{$artikel->gambar_art}}" style="width: 670px; height: auto;">
