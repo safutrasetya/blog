@@ -28,7 +28,7 @@
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit"><i class="fas fa-search fa-1x"></i></button>
       </form>
-      <div style="margin-left:20px; margin-right:150px;" class="btn-group">
+      <div style="margin-left:20px; margin-right:125px;" class="dropdown">
           <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="margin-right: 5px;">
           <a href="aboutus.php"><i class="far fa-user-circle fa-2x" height="35px"></i></a>
           </button>
