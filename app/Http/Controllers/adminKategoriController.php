@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use App\Models\adminKategori;
+use App\Models\table_kategori;
+
 
 class adminKategoriController extends Controller
 {
@@ -17,7 +19,7 @@ class adminKategoriController extends Controller
     {
         // $aKategoris = DB::select('SELECT * FROM table_kategori');
         // return view('adminKategori',['aKategoris'=>$aKategoris]);
-        $kategoris = adminKategori::paginate(5);
+        $kategoris = table_kategori::paginate(5);
         return view('adminkategori',['kategoris'=>$kategoris]);
     }
 
@@ -78,7 +80,7 @@ class adminKategoriController extends Controller
     public function search(Request $request)
     {
       $keyword = $request->cari;
-      $kategoris = adminKategori::where('nama_kat','like',"%".$keyword."%")->paginate(2);
+      $kategoris = table_kategori::where('nama_kat','like',"%".$keyword."%")->paginate(2);
       return view('adminkategori',['kategoris'=>$kategoris]);
     }
     /**

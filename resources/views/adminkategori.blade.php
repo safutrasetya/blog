@@ -1,9 +1,12 @@
 @extends ('layout.template')
+@section('judulhal')
+<title>Admin Control</title>
+@endsection
 @section('content')
     <div class="jumbotron p-3 h-100" style="height: 750px;">
-      <div class="jumbotron bg-secondary mx-auto p-5 container-fluid">
-        <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
-          <h1 class="text-center text-light">Admin Control Room</h1>
+      <div class="jumbotron bg-light mx-auto p-5">
+        <div class="mx-auto text-center mb-3" style="margin-top:-25px;">
+          <h1 class="text-center">Admin Control Room</h1>
         </div>
         <div class="row">
           <div class="col-sm-8">
@@ -22,13 +25,21 @@
               </li>
             </ul>
           </div>
+          <div class="col-sm-4">
           <form class="form-inline" action="searchkategori" autocomplete="on" method="GET">
-            <input type="text" name="cari" id="search" class="form-control mb-2 mr-sm-2" value="{{ request('cari') }}" placeholder="Nama Kategori...">
+            <div class="row">
+            <div class="col-sm-8">
+              <input type="text" name="cari" id="search" class="form-control mb-2 mr-sm-2" value="{{ request('cari') }}" placeholder="Nama Kategori...">
+            </div>
+            <div class="col-sm-4">
             <button type="submit" class="btn btn-primary mb-2" value="cari">Search</button>
+          </div>
+          </div>
           </form>
         </div>
-        <div class="row">
-          <table class="table table-bordered text-justify">
+        </div>
+        <div class="row shadow p-2">
+          <table class="table table-bordered text-justify bg-info">
             <thead>
               <tr class="text-center">
                 <th>Id Kat</th>
@@ -45,11 +56,16 @@
                 <td>{{ $data->id_kat}}</td>
                 <td>{{ $data->nama_kat}}</td>
                 <td><img src ="img/{{ $data->gambar}}" width="120px" height="120px"></td>
-                <td>{{ $data->deskripsi_kat}}</td>
+                <td>
+                  <div class="overflow-auto" style="height: 120 px;">
+                    {{$data->deskripsi_kat}}
+                  </div>
+
+                </td>
                 <td></td>
                 <td>
                     <input type="text" value="" hidden>
-                    <button class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit</button>
+                    <button class="btn btn-success mb-2"><img src="img/edit-icon.png" style="height:20px; width:26px;"> Edit</button>
                     <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalhapus" data-bs-whatever="{{$data->id_kat}}"
                       namakat="{{$data->nama_kat}}"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</button>
                       <!--Modal-->
@@ -107,7 +123,6 @@
       // Update the modal's content.
       var modalTitle = hapusmodal.querySelector('.waaw')
       var modalBodyInput = hapusmodal.querySelector('.modal-body input')
-
       modalTitle.textContent = 'Anda yakin ingin menghapus kategori ' + namahapus + '?'
       modalBodyInput.value = idhapus
       });
