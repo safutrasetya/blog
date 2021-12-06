@@ -1,6 +1,6 @@
 
 <!-- navbar (tombol tambah artikel, beranda, favorit, admincontrol,search,profil(profil,logout)) -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top d-flex justify-content-start">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top d-flex justify-content-start" style="margin-bottom: 10px">
   <div class="container-fluid">
     <a class="aboutus.php" style ="text-decoration: none; font-size: 16px; margin-top: 6px; margin-left: 10px; color: black" href="/artikel" class="fs-4" >Art & Culture</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

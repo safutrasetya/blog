@@ -6,7 +6,7 @@
 
 <div class="row justify-content-center pe-2 mt-4">
   <div class="col-sm-auto">
-    <h2 class="text-dark">Artikel {{$nama_author -> nama}} </h2>
+    <h2 class="text-dark" style="margin-top: 15px">Artikel {{$nama_author -> nama}} </h2>
   </div>
 </div>
 

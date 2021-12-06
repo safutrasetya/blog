@@ -85,6 +85,9 @@ Route::get('/searchakun', function () {
     return view('searchakun');
 });
 Route::get('/adminkategori',[adminKategoriController::class,'index']);
+Route::get('editkategori/{id}',[adminKategoriController::class,'edit']);
+Route::post('/updatekategori',[adminKategoriController::class,'update']);
+// Route::get('/adminkategori/delete{id}',[adminKategoriController::class,'destroy'])->name('adKategoridelete');
 Route::post('/deletekategori', [adminKategoriController::class, 'delete']);
 Route::get('searchkategori',[adminKategoriController::class,'search'])->name('search');
 //LINE IMMANUEL

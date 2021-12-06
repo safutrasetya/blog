@@ -47,7 +47,6 @@
                 <th>Nama</th>
                 <th>Gambar</th>
                 <th>Info</th>
-                <th>Jumlah Artikel</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -58,16 +57,15 @@
                 <td>{{ $data->nama_kat}}</td>
                 <td><img src ="/img/{{$data->gambar}}" width="120px" height="120px"></td>
                 <td>
-                  <div class="overflow-auto" style="height: 120 px;">
+                  <div class="overflow-auto" style="height:100px;">
                     {{$data->deskripsi_kat}}
                   </div>
 
                 </td>
-                <td></td>
                 <td>
                     <input type="text" value="" hidden>
-                    <button class="btn btn-success mb-2"><img src="img/edit-icon.png" style="height:20px; width:26px;"> Edit</button>
-                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalhapus" data-bs-whatever="{{$data->id_kat}}"
+                      <a href="editkategori/{{$data->id_kat}}"><button class="btn btn-success mb-2"><img src="img/edit-icon.png" style="height:20px; width:26px;"> Edit</button></a>
+                      <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalhapus" data-bs-whatever="{{$data->id_kat}}"
                       namakat="{{$data->nama_kat}}"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</button>
                       <!--Modal-->
                       <div class="modal fade" id="modalhapus" tabindex="-1" aria-hidden="true">
