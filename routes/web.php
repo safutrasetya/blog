@@ -67,6 +67,7 @@ Route::post('deleteauthor', [AdminAuthorController::class, 'deleteauth']);
 Route::get('/adminauthcari', function () { return view('adminauthorcari');});
 Route::get('/adminauthcari', [AdminAuthorController::class, 'searchauth']);
 
+Route::get('/adminkatcari', [adminKategoriController::class, 'searchkat']);
 Route::resource('/favorit',FavoritController::class);
 Route::get('/artikeledit', function () {
     return view('artikel_edit');

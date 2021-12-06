@@ -15,7 +15,7 @@ class AdminAkunController extends Controller
      */
     public function index()
     {
-        $listakun = DB::table('table_akun')->get();
+        $listakun = DB::table('table_akun')->paginate(3);
         return view('adminakun', ['listakuns'=>$listakun]);
         //return view('adminakun');
     }

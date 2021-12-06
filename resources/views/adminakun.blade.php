@@ -102,7 +102,7 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($listakuns as $akun)
+          @foreach($listakuns as $key=>$akun)
           <tr>
             <td>{{$akun->id_akun}}</td>
             <td>{{$akun->nama}}</td>
@@ -118,6 +118,16 @@
           @endforeach
         </tbody>
       </table>
+
+      {{ $listakuns->firstItem() }}
+        sampai
+      {{ $listakuns->lastItem() }}
+        dari
+      {{  $listakuns->total()}}
+
+     <div class="d-flex justify-content-center">
+         {{ $listakuns->links("pagination::bootstrap-4") }}
+     </div>
     </div>
   </div>
 </div>
