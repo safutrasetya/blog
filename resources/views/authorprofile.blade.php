@@ -32,7 +32,7 @@
               <div class="row">
                 <div class="col-sm-8 text-left">
                   <a href=""><button class="btn btn-outline-primary">Edit Profil</button></a>
-                  <a style="text-decoration:none; color:white; " href=""><button  class="btn btn-success" >Tampilkan semua artikel</button></a>
+                  <a style="text-decoration:none; color:white; " href="/author/artikel/{idauthor}"><button  class="btn btn-success" >Tampilkan semua artikel</button></a>
                 </div>
                 <div class="col-sm-4">
                   <button class="btn btn-danger float-end">Logout</button>
