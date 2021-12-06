@@ -35,4 +35,31 @@ class ProfilController extends Controller
         ->get();
       return view('authorprofile', ['dataauthor'=>$dataauthor,'dataart'=>$dataartauth]);
     }
+    public function editprofil(){
+      $idakunedit = 1;
+      $dataakunedit = DB::table('table_akun')
+      ->where('id_akun', $idakunedit)
+      ->get();
+      return view('editakun', ['listdata'=>$dataakunedit]);
+    }
+    public function updateprofil(Request $req){
+      $idakun = $req->idakun;
+      $nama = $req->nama;
+      $nohp = $req->nohp;
+      $password = $req->password;
+      $passwordre = $req->repassword;
+      $cekdb = DB::table('table_akun')->where('id_akun',$idakun)->get();
+      foreach($cekdb as $checkdb)
+      if($checkdb->nama == $nama && $checkdb->no_hp==$nohp && $checkdb->pass==$password){
+        return redirect('profil');
+      }else{
+        $updtcmd = DB::table('table_akun')->where('id_akun')->update(
+          ['nama'=>$nama, 'no_hp'=>$nohp, 'pass'=>$password]);
+        return redirect('profil')->with('success','Akun berhasil di ubah!');
+
+      }
+      // $updtcmd = DB::table('table_akun')->where('id_akun')->update(
+      //   ['nama'=>$nama, 'no_hp'=>$nohp, 'pass'=>$password]);
+      // return redirect('profil')->with('success','Akun berhasil di ubah!');
+    }
 }

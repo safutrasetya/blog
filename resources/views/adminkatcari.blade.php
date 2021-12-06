@@ -56,7 +56,7 @@
               <tr>
                 <td>{{ $data->id_kat}}</td>
                 <td>{{ $data->nama_kat}}</td>
-                <td><img src ="/img/{{$data->gambar}}" width="120px" height="120px"></td>
+                <td><img src ="/img/{{ $data->gambar}}" width="120px" height="120px"></td>
                 <td>
                   <div class="overflow-auto" style="height: 120 px;">
                     {{$data->deskripsi_kat}}

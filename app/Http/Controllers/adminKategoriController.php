@@ -79,9 +79,9 @@ class adminKategoriController extends Controller
     }
     public function search(Request $request)
     {
-      $keyword = $request->cari;
+      $keyword = $request->carikat;
       $kategoris = table_kategori::where('nama_kat','like',"%".$keyword."%")->paginate(2);
-      return view('adminkategori',['kategoris'=>$kategoris]);
+      return view('adminkatcari',['kategoris'=>$kategoris]);
     }
     /**
      * Remove the specified resource from storage.

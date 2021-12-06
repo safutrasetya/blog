@@ -4,44 +4,57 @@
 @endsection
 @section('content')
 <br>
-  <div class="row justify-content-center" style="background-color:grey; padding:3% ;">
+<form action="/updtprofil" method="POST">
+  @csrf
+  <div class="row justify-content-center mt-5" style="background-color:grey; padding:3% ;">
+    @include('flash-message')
     <div class="col-4">
       <div class="text-center">
-          <img  src="img/02.jpg" width=10% style="border-radius: 50%; width: 250px; height: 250px;">
-          <br><br>
-          <input class="form-control form-control-sm" type="file">
+        <img  src="img/02.jpg" width=10% style="border-radius: 50%; width: 250px; height: 250px;">
+        <br><br>
+        <input class="form-control" type="file">
       </div>
     </div>
     <div class="col-4">
       @foreach($listdata as $dataakun)
-      <form class="" action="#" method="">
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Nama</span>
-            <input value="{{$dataakun->nama}}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-          </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
-            <input value="{{$dataakun->email}}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-          </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">No. HP</span>
-            <input value="{{$dataakun->no_hp}}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-          </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
-            <input value="{{$dataakun->pass}}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-          </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
-            <input value="{{$dataakun->pass}}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-          </div>
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
-            <input value="{{$dataakun->nama}}" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-          </div>
-          <button type="submit" class="btn btn-success btn-md">POST</button>
-        </form>
-        <a href='/adminakun'><button class="mx-2 btn btn-dark btn-md text-white">Discard</button></a>
+      <input hidden name="idakun" value="{{$dataakun->id_akun}}" type="text" class="form-control">
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Nama</span>
+          <input name="nama" value="{{$dataakun->nama}}" type="text" class="form-control">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">No. HP</span>
+          <input name="nohp" value="{{$dataakun->no_hp}}" type="text" class="form-control">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+          <input name="password" id="password" value="{{$dataakun->pass}}" type="password" class="form-control">
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Re-Password</span>
+          <input name="repassword" id="repassword" value="{{$dataakun->pass}}" type="password" class="form-control">
+        </div>
+        <a href='/profil'><button class="mx-2 btn btn-outline-dark btn-md">Discard</button></a>
+        <button type="submit" class="btn btn-success btn-md">POST</button>
       @endforeach
       </div>
     </div>
+    <a href='/profil'><button class="mx-2 btn btn-outline-dark btn-md">Discard</button></a>
+
+</form>
+<script type="text/javascript">
+  var password = document.getElementById("password");
+  var Repassword = document.getElementById("repassword");
+
+  function validatePassword(){
+    if(password.value != Repassword.value) {
+      Repassword.setCustomValidity("Passwords tidak sesuai");
+    } else {
+      Repassword.setCustomValidity('');
+    }
+  }
+
+  password.onchange = validatePassword;
+  Repassword.onkeyup = validatePassword;
+</script>

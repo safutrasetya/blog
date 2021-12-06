@@ -109,7 +109,7 @@
           @foreach($listarts as $art)
           <tr>
             <td>{{$art->id_artikel}}</td>
-            <td>{{$art->nama_author}}</td>
+            <td>{{$art->nama}}</td>
             <td>{{$art->judul}}</td>
             <td>
               <div class="overflow-auto" style="height: 150px;">
