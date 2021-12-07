@@ -70,7 +70,7 @@
           </div>
           <div class="row">
             @foreach($search_author as $author)
-            <div class="card">
+            <div class="card" style="margin-left: 20px" >
               <div class="card-header">
                 {{$author->nama}}
               </div>
