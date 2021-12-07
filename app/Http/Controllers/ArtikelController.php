@@ -11,32 +11,6 @@ use App\Models\table_akun;
 
 class ArtikelController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
@@ -73,7 +47,7 @@ class ArtikelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
@@ -101,7 +75,7 @@ class ArtikelController extends Controller
         'artikelbaru'=>'required',
         'kategori' =>'required',
       ]);
-
+        $idauthor =$req->id;
         $banner = time().'.'.$req->gambarart->extension();
         $req->gambarart->move(public_path('img'),$banner);
 
@@ -113,6 +87,6 @@ class ArtikelController extends Controller
           'isi_art'=>$req->artikelbaru,
           'gambar_art'=>$banner
         ]);
-        return redirect('/authorprofil')->with('success','Artikel berhasil ditambah');
+        return redirect('/authorprofile/'.$idauthor)->with('success','Artikel berhasil ditambah');
     }
 }

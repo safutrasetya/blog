@@ -21,17 +21,7 @@
             </div>
             <div class="card-body">
               <div class="text-left">
-<<<<<<< HEAD
-                @foreach($dataauthor as $dataakuns)
-                <table style="font-size:25px">
-                  <tr>
-                    <td>Nama </td><td>: {{$dataakuns->nama}}</td>
-                  </tr>
-                </table>
-=======
                   <p class="h3">{{$dataakuns->nama}}</p>
-                  @endforeach
->>>>>>> eee02bc68d3fb37bf70ff7e6b6e3ab7a19f2a07f
               </div>
             </div>
             <div class="card-footer">
