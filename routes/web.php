@@ -15,6 +15,7 @@ use App\Http\Controllers\adminKategoriController;
 */
 //LINE SAFUTRA
 use App\Http\Controllers\AdminAkunController;
+use App\Http\Controllers\AdminAdminController;
 use App\Http\Controllers\AdminArtikelController;
 use App\Http\Controllers\AdminAuthorController;
 use App\Http\Controllers\ProfilController;
@@ -42,6 +43,11 @@ Route::get('/functionlogout', [LoginController::class, 'logout']);
 Route::get('/kategori', [KategoriController::class, 'index']);
 Route::get('/kategori/{id}', [KategoriController::class, 'detailkategori']);
 Route::get('/kategori/artikel/{id}', [KategoriController::class, 'detailartikel']);
+Route::get('/author', [KategoriController::class, 'author']);
+Route::get('/author/{id}', [KategoriController::class, 'detailauthor']);
+Route::get('/author/artikel/{id}', [KategoriController::class, 'detailartikel']);
+
+Route::get('/tbhfav_kat', [KategoriController::class, 'tbhfavkat']);
 
 Route::get('/artikelbuat', function () {
     return view('artikel_buat');
@@ -57,6 +63,12 @@ Route::get('/adminakuncari', function () {
     return view('adminakuncari');
 });
 Route::get('/adminakuncari', [AdminAkunController::class, 'searchakun']);
+Route::resource('/adminadmin',AdminAdminController::class);
+Route::get('/adminadmincari', function () {
+    return view('adminadmincari');
+});
+Route::get('/adminadmincari', [AdminAdminController::class, 'searchadmin']);
+Route::post('downgradelvl', [AdminAkunController::class, 'downgradelvl']);
 
 Route::get('/adminartikel', function () {
     return view('adminartikel');

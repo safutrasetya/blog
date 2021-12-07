@@ -14,13 +14,17 @@ class AllSearchController extends Controller
 
     public function allsearch()
     {
+      session_start();
       $search_text = $_GET['cari'];
+      // Mencari kategori yang mirip
       $hasil_kategori = DB::table('table_kategori')
       ->where('nama_kat','LIKE', '%'.$search_text.'%')
       ->get();
+      // Mencari artikel yang mirip
       $hasil_artikel = DB::table('table_artikel')
       ->where('judul','LIKE', '%'.$search_text.'%')
       ->get();
+      // Mencari author yang mirip
       $hasil_author = DB::table('table_author')
       ->leftjoin('table_akun','table_author.id_akun_author', '=', 'table_akun.id_akun')
       ->where('nama','LIKE', '%'.$search_text.'%')

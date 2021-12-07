@@ -1,11 +1,11 @@
 @extends ('layout.template')
 @section('judulhal')
-<title>Beranda</title>
+<title>Detail Author</title>
 @endsection
 @section('content')
 <div class="row justify-content-center pe-2 mt-4">
   <div class="col-sm-auto">
-    <h2 class="text-dark" style="margin-top: 15px">Detail Kategori</h2>
+    <h2 class="text-dark" style="margin-top: 15px">Author</h2>
   </div>
 </div>
 <div class="row justify-content-center pe-2 mt-4">
@@ -19,29 +19,20 @@
     </table>
   </div>
 </div>
-
 <div class="container mt-5">
   <div class="row">
-    @foreach($kategori as $key => $k)
+    @foreach($author as $key => $k)
    <div class="col-12 d-flex justify-content-center">
-       <img style="height:500px; width:100%; border:10px solid black; margin-bottom:16px;" src="/../img/{{$k->gambar}}" alt="">
+       <img style="height:500px; width:100%; border:10px solid black; margin-bottom:16px;" src="/../img/{{$k->gambar_author}}" alt="">
    </div>
    <div class="col-12 d-flex justify-content-center">
-     <h2><strong> ~{{$k->nama_kat}}~ </strong></h2> </br>
+     <h2><strong> ~{{ ucwords(strtolower($k->nama)) }}~ </strong></h2> </br>
    </div>
-   <?php
-      $idkategori = $k->id_kat;
-   ?>
-   <div class="d-flex justify-content-center">
-    <form  class="" action="/tbhfav_kat" method="post">
-      @csrf
-        <input type="text" name="idakun" hidden value="{{$_SESSION['id']}}">
-        <input type="text" name="idkat" hidden value=" {{$idkategori}} ">
-        <button style="background-color:white; border:none;" type="button" name="button"> <img style="width:20px; height:20px" src="/../img/kosonghati.png" alt=""> </button>
-    </form>
-  </div>
+   <div class="col-12 d-flex justify-content-center">
+     <h5> {{$k->tanggal_lahir}} </h5> </br>
+   </div>
      <div class="col-12 d-flex justify-content-around">
-     <p style="text-align:justify;">" {{$k->deskripsi_kat}}"</p>
+     <p style="text-align:justify;">"<i> {{ ucwords(strtolower($k->quote)) }} </i>"</p>
    </div>
    @endforeach
   </div>
@@ -54,7 +45,9 @@
         <img style="height:170px; width:170px; border-radius:20%;" src="/../img/{{$a->gambar_art}}" alt="">
       </div>
       </a>
-      <p style="text-align:center;"><strong> {{$a->judul}} </strong></p>
+        <a href="artikel/{{$a->id_artikel}}">
+          <p style="text-align:center; text-decoration: none; color:black;"><strong style="text-decoration:none;"> {{ucwords(strtolower($a->judul)) }} </strong></p>
+        </a>
     </div>
     @endforeach
   </div>

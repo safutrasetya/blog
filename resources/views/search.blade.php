@@ -26,7 +26,7 @@
         <form  method="GET" action="{{url('/searchall')}} ">
           <div class="row">
             <div class="col-sm-11">
-              <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Search...">
+              <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Search..." name="cari">
             </div>
             <div class="col-sm-1">
               <button type="submit" class="btn btn-primary mb-2">Search</button>

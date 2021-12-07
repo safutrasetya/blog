@@ -1,11 +1,11 @@
 @extends ('layout.template')
 @section('judulhal')
-<title>Beranda</title>
+<title>Author</title>
 @endsection
 @section('content')
 <div class="row justify-content-center pe-2 mt-4">
   <div class="col-sm-auto">
-    <h2 class="text-dark" style="margin-top: 15px">Kategori</h2>
+    <h2 class="text-dark" style="margin-top: 15px">Author</h2>
   </div>
 </div>
 <div class="row justify-content-center pe-2 mt-4">
@@ -22,16 +22,16 @@
 
 <div class="container mt-5">
   <div class="row">
-     @foreach($kategori as $key => $k)
+     @foreach($author as $key => $k)
     <div class="col-4 ">
       <div class="d-flex justify-content-center">
 
-      <a href="kategori/{{$k->id_kat}}">
-        <img style="height:280px; width:280px; border-radius:20%;" src="/../img/{{$k->gambar}}" alt="">
+      <a href="author/{{$k->id_author}}">
+        <img style="height:280px; width:280px; border-radius:20%;" src="/../img/{{$k->gambar_author}}" alt="">
       </a>
     </div>
       <div class="d-flex justify-content-center mb-4">
-        <h3><strong> {{$k->nama_kat}}  </strong></h3>
+        <h3><strong> {{$k->nama}}  </strong></h3>
       </div>
     </div>
     @endforeach

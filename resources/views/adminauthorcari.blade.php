@@ -50,6 +50,9 @@
           <li class="nav-item">
             <a class="nav-link active" href="adminauthor">Author</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="adminadmin">Admin</a>
+          </li>
         </ul>
       </div>
       <div class="col-sm-4">
@@ -94,6 +97,15 @@
           @endforeach
         </tbody>
       </table>
+      {{ $hasil->firstItem() }}
+        sampai
+      {{ $hasil->lastItem() }}
+        dari
+      {{  $hasil->total()}}
+
+     <div class="d-flex justify-content-center">
+         {{ $hasil->links("pagination::bootstrap-4") }}
+     </div>
     </div>
   </div>
 </div>

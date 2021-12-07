@@ -6,10 +6,12 @@
 <div class="container shadow-lg p-3 h-100" style="height: 750px;">
   <div class="jumbotron bg-secondary mx-auto p-5" style="height: 750px;">
     <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
-      <h1 class="text-center">Profil TEST USER</h1>
+      @foreach($dataauthor as $dataakuns)
+      <h1 class="text-center">Profil Author {{$dataakuns->nama}}</h1>
     </div>
     <div class="mx-auto">
       <div class="row">
+
         <div class="col-sm-6">
           <div class="card mx-auto">
             <div class="card-header">
@@ -19,22 +21,26 @@
             </div>
             <div class="card-body">
               <div class="text-left">
+<<<<<<< HEAD
                 @foreach($dataauthor as $dataakuns)
                 <table style="font-size:25px">
                   <tr>
                     <td>Nama </td><td>: {{$dataakuns->nama}}</td>
                   </tr>
                 </table>
+=======
+                  <p class="h3">{{$dataakuns->nama}}</p>
+                  @endforeach
+>>>>>>> eee02bc68d3fb37bf70ff7e6b6e3ab7a19f2a07f
               </div>
             </div>
             <div class="card-footer">
               <div class="row">
-                <div class="col-sm-8 text-left">
-                  <a href=""><button class="btn btn-outline-primary">Edit Profil</button></a>
+                <div class="col-sm-7 text-left">
                   <a style="text-decoration:none; color:white; " href="/authorartikel/1"><button  class="btn btn-success" >Tampilkan semua artikel</button></a>
                 </div>
-                <div class="col-sm-4">
-                  <button class="btn btn-danger float-end">Logout</button>
+                <div class="col-sm-5">
+                  <a href=""><button class="btn btn-warning float-end">Masukkan ke favorit</button></a>
                 </div>
                 <div class="col-sm-4 text-left mt-2">
                 <a href="/authorartikel/{{$dataakuns->id_author}}/artikelbuat"><button type="button" class="btn btn-success" name="button">Tambah Artikel</button></a>

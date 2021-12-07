@@ -10,6 +10,7 @@ class ArtikelAuthorController extends Controller
 {
   public function authorartikel($idauthor)
   {
+    session_start();
     $semuaartikel=DB::table('table_artikel')
     ->where('id_author',$idauthor)
     ->get();
@@ -19,6 +20,4 @@ class ArtikelAuthorController extends Controller
     ->first();
     return view('authorartikel', ['artikelauthor'=>$semuaartikel,'nama_author'=>$nama ]);
   }
-
-
 }

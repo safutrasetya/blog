@@ -16,12 +16,12 @@
     <div class="row m-2">
       <div class="card">
         <div class="card-header">
-          <p class="h5">{{$artikel->judul}}</p>
+          <a href="kategori/artikel/{{$artikel->id_artikel}}"><p class="h5">{{$artikel->judul}}</p></a>
         </div>
         <div class="card-body">
-          <img src="/img/{{$artikel->gambar_art}}" style="width: 670px; height: auto;">
+          <a href="kategori/artikel/{{$artikel->id_artikel}}"><img src="/img/{{$artikel->gambar_art}}" style="width: 670px; height: auto;"></a>
           <p class="isiartikel">{{$artikel->isi_art}}</p>
-          <a href="">(Baca Selengkapnya...)</a>
+          <a href="/kategori/artikel/{{$artikel->id_artikel}}">(Baca Selengkapnya...)</a>
         </div>
       </div>
     </div>
