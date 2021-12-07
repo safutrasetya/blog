@@ -103,8 +103,38 @@ class ArtikelController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+      session_start();  
+      if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
+        if ($_SESSION['level'] == 2||$_SESSION['level']==1) {
+        $artikels =DB::table('table_artikel')->where('id_artikel',$id)->delete();
+        return back()->with('success','Artikel telah dihapus');
+      }
+        else {
+          return back();
+        }
+          //return view('adminakun');
+        }
+        else {
+          return redirect('/login');
+        }
+      }
+    public function delete(Request $req)
+    {
+      // if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
+      //   if ($_SESSION['level'] == 2||$_SESSION['level']==1) {
+      //     $iddel = $req->idart;
+      //     $searchid = DB::table('table_artikel')->where('id_artikel',$iddel)->delete();
+      //     return back()->with('success','Artikel telah dihapus!');
+      //   }
+      //   else {
+      //     return back();
+      //   }
+      //     //return view('adminakun');
+      //   }
+      //   else {
+      //     return redirect('/login');
+      //   }
+      }
     public function tambah($idauthor)
     {
       session_start();

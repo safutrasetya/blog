@@ -120,6 +120,7 @@ Route::get('searchkategori',[adminKategoriController::class,'search'])->name('se
 //LINE IMMANUEL
 Route::get('artikeledit/{id}',[ArtikelController::class,'edit']);
 Route::post('/updateartikel',[ArtikelController::class,'update']);
+Route::get('/artikelhapus/{id}',[ArtikelController::class,'destroy']);
 Route::get('/authorartikel/{idauthor}/artikelbuat',[ArtikelController::class,'tambah']);
 Route::post('/simpanartikel',[ArtikelController::class,'tambah_proses']);
 //LINE YEHEXKIEL

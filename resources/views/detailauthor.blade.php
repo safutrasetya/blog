@@ -23,7 +23,7 @@
   <div class="row">
     @foreach($author as $key => $k)
    <div class="col-12 d-flex justify-content-center">
-       <img style="height:500px; width:100%; border:10px solid black; margin-bottom:16px;" src="/../img/{{$k->gambar_author}}" alt="">
+       <img style="height:800px; width:800px; border:10px solid black; margin-bottom:16px;" src="/../img/{{$k->gambar_akun}}" alt="">
    </div>
    <div class="col-12 d-flex justify-content-center">
      <h2><strong> ~{{ ucwords(strtolower($k->nama)) }}~ </strong></h2> </br>
