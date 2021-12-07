@@ -106,7 +106,7 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($listarts as $art)
+          @foreach($listarts as $key=>$art)
           <tr>
             <td>{{$art->id_artikel}}</td>
             <td>{{$art->nama}}</td>
@@ -126,6 +126,14 @@
           @endforeach
         </tbody>
       </table>
+      {{ $listarts->firstItem() }}
+        sampai
+      {{ $listarts->lastItem() }}
+        dari
+      {{  $listarts->total()}}
+
+      <div class="d-flex justify-content-center">
+         {{ $listarts->links("pagination::bootstrap-4") }}
     </div>
   </div>
 </div>

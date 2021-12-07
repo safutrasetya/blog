@@ -14,7 +14,6 @@
         <tr>
             <th><button type="button" class="btn btn-outline-dark">Semua</button></th>
             <th><button type="button" class="btn btn-outline-dark"><a href="/kategori"> Kategori </a></button></th>
-            <th><button type="button" class="btn btn-outline-dark">A - Z</button></th>
         </tr>
     </table>
   </div>
@@ -25,12 +24,12 @@
     <div class="row m-2">
       <div class="card">
         <div class="card-header">
-          <p class="h5">By {{$artikel->nama}}</p>
+          <p class="h5">By <a href="/authorprofile/{{$artikel->id_author}}">{{$artikel->nama}}</a></p>
         </div>
         <div class="card-body">
-          <img src="img/{{$artikel->gambar_art}}" style="width: 670px; height: auto;">
+          <a href="kategori/artikel/{{$artikel->id_artikel}}"><img src="img/{{$artikel->gambar_art}}" style="width: 670px; height: auto;"></a>
           <p class="isiartikel">{{$artikel->isi_art}}</p>
-          <a href="">(Baca Selengkapnya...)</a>
+          <a href="kategori/artikel/{{$artikel->id_artikel}}">(Baca Selengkapnya...)</a>
         </div>
       </div>
     </div>

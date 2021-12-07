@@ -94,6 +94,15 @@
           @endforeach
         </tbody>
       </table>
+      {{ $hasil->firstItem() }}
+        sampai
+      {{ $hasil->lastItem() }}
+        dari
+      {{  $hasil->total()}}
+
+     <div class="d-flex justify-content-center">
+         {{ $hasil->links("pagination::bootstrap-4") }}
+     </div>
     </div>
   </div>
 </div>

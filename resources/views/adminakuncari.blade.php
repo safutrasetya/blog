@@ -54,9 +54,9 @@
   </div>
 </div>
 <div class="jumbotron p-3 h-100" style="height: 750px;">
-  <div class="jumbotron bg-secondary mx-auto p-5" style="height: 750px;">
+  <div class="jumbotron mx-auto p-5" style="height: 750px;">
     <div class="mx-auto text-center mb-3" style="margin-top:-25px;">
-      <h1 class="text-center text-light">Admin Control Room</h1>
+      <h1 class="text-center">Admin Control Room</h1>
     </div>
     @include('flash-message')
     <div class="row">
@@ -90,7 +90,7 @@
       </div>
     </div>
     <div class="row">
-      <table class="table table-bordered">
+      <table class="table table-bordered bg-info">
         <thead>
           <tr>
             <th>Id Akun</th>
@@ -102,13 +102,13 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($hasil as $akun)
+          @foreach($hasil as $key=>$akun)
           <tr>
             <td>{{$akun->id_akun}}</td>
             <td>{{$akun->nama}}</td>
             <td>{{$akun->email}}</td>
             <td>{{$akun->no_hp}}</td>
-            <td>{{$akun->level}}</td>
+            <td>{{$akun->nama_level}}</td>
             <td>
               <input type="text" value="" hidden>
               <button name="updtlvl" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalupdt" idakun="{{$akun->id_akun}}" data-lvl="{{$akun->level}}"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit Akun</button></a>
@@ -118,6 +118,16 @@
           @endforeach
         </tbody>
       </table>
+
+      {{ $hasil->firstItem() }}
+        sampai
+      {{ $hasil->lastItem() }}
+        dari
+      {{  $hasil->total()}}
+
+     <div class="d-flex justify-content-center">
+         {{ $hasil->links("pagination::bootstrap-4") }}
+     </div>
     </div>
   </div>
 </div>

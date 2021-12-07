@@ -108,7 +108,7 @@
             <td>{{$akun->nama}}</td>
             <td>{{$akun->email}}</td>
             <td>{{$akun->no_hp}}</td>
-            <td>{{$akun->level}}</td>
+            <td>{{$akun->nama_level}}</td>
             <td>
               <input type="text" value="" hidden>
               <button name="updtlvl" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalupdt" idakun="{{$akun->id_akun}}" data-lvl="{{$akun->level}}"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit Akun</button></a>
