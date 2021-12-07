@@ -20,7 +20,7 @@ class KategoriController extends Controller
       return redirect('/login');
     }
 
-            }
+      }
             public function detailkategori($id)
               {
                 session_start();
@@ -33,7 +33,7 @@ class KategoriController extends Controller
                 return redirect('/login');
               }
 
-                      }
+              }
                       public function detailartikel($id)
                         {
                           session_start();
@@ -46,44 +46,5 @@ class KategoriController extends Controller
                         }
 
                                 }
-    public function login(Request $request)
-              {
-                      $data =  DB::table('table_akun')->where('email',$request->email)->first();
-                      if (!$data) {
-                        return redirect('/login')->with('alert', 'Email Salah, Silahkan Periksa Kembali Email Anda')->with('cek','dikirim');
 
-                      }
-                       if (Hash::check($request->password, $data->pass)) {
-                         session_start();
-                         $_SESSION['berhasil'] = '1';
-                         return redirect('/beranda')->with('berhasil', 'berhasil!')->with('cek','dikirim');
-                         }
-                         return redirect('/login')->with('alert2', 'Password Anda Salah !')->with('cek','dikirim');
-          }
-          public function HalamanLogin(Request $request)
-                    {
-                               session_start();
-                               if ($_SESSION['berhasil'] == "1") {
-                                 return back();
-                               }
-                               else {
-                                 return view('login');
-                               }
-                }
-                public function HalamanDaftar(Request $request)
-                          {
-                            session_start();
-                            if ($_SESSION['berhasil'] == "1") {
-                              return back();
-                            }
-                            else {
-                              return view('daftar');
-                      }
-                    }
-                    public function logout(Request $request)
-                              {
-                                session_start();
-                              $_SESSION['berhasil'] = "0";
-                                  return redirect('/login');
-                        }
 }

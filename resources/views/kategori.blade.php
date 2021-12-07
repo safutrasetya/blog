@@ -12,7 +12,7 @@
   <div class="col-auto">
     <table>
         <tr>
-            <th><button type="button" class="btn btn-outline-dark"><a href=""> Artikel</a></button></th>
+            <th><button type="button" class="btn btn-outline-dark"><a href="/beranda"> Semua</a></button></th>
             <th><button type="button" class="btn btn-outline-dark"><a href="/kategori"> Kategori </a></button></th>
             <th><button type="button" class="btn btn-outline-dark">A - Z</button></th>
         </tr>

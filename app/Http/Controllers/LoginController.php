@@ -46,6 +46,7 @@ class LoginController extends Controller
                          $_SESSION['berhasil'] = '1';
                          $_SESSION['nama'] = $data->nama;
                          $_SESSION['email'] = $data->email;
+                         $_SESSION['id'] = $data->id_akun;
                          $_SESSION['nohp'] = $data->no_hp;
                          $_SESSION['level'] = $data->level;
                          return redirect('/beranda')->with('berhasil', 'berhasil!')->with('cek','dikirim');
