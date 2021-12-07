@@ -35,7 +35,21 @@ class ArtikelController extends Controller
      */
     public function edit($id)
     {
-        //
+        session_start();
+        if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
+        if ($_SESSION['level'] == 2) {
+        $artikels = DB::table('table_artikel')->where('id_artikel',$id)->get();
+        $kategoris = DB::table('table_kategori')->get();
+        return view('artikeledit',['artikels'=>$artikels,'kategoris'=>$kategoris]);
+      }
+      else {
+        return back();
+      }
+        //return view('adminakun');
+      }
+      else {
+        return redirect('/login');
+      }
     }
 
     /**
@@ -45,10 +59,41 @@ class ArtikelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $req)
     {
-
+      session_start();
+      if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
+        if ($_SESSION['level'] == 2) {
+      $req->validate([
+        'judulart'=>'required',
+        'gambarart'=>'image',
+        'artikelbaru'=>'required'
+      ]);
+      $idauthor=$req->id;
+      $artikels =DB::table('table_artikel')->where('id_artikel',$req->idart);
+      if($req->file('gambarart')==""||$req->has('kategori')==""){
+        $artikels->update([
+          'judul'=>$req->judulart,
+          'isi_art'=>$req->artikelbaru,
+        ]);
+      }else{
+        $banner=time().'.'.$req->gambarart->extension();
+        $req->gambarart->move(public_path('img'),$banner);
+        $artikels->update([
+          'id_kat'=>$req->kategoriart,
+          'judul'=>$req->judulart,
+          'isi_art'=>$req->artikelbaru,
+          'gambar_art'=>$banner,
+        ]);
+      }
+        return redirect('/authorprofile/'.$idauthor)->with('success','Artikel berhasil diperbarui');
+    }else{
+      return back();
     }
+  }else{
+    return redirect('/login');
+  }
+}
 
     /**
      * Remove the specified resource from storage.
@@ -62,13 +107,28 @@ class ArtikelController extends Controller
     }
     public function tambah($idauthor)
     {
+      session_start();
+      if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
+      if ($_SESSION['level'] == 2) {
       $kategoris = DB::table('table_kategori')->get();
       $author = DB::table('table_author')->where('id_author',$idauthor)->get();
 
       return view('artikelbuat',['kategoris'=>$kategoris,'author'=>$author]);
     }
+    else {
+      return back();
+    }
+      //return view('adminakun');
+    }
+    else {
+      return redirect('/login');
+    }
+  }
     public function tambah_proses(Request $req)
     {
+      session_start();
+      if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
+        if ($_SESSION['level'] == 2) {
       $req->validate([
         'judulart' => 'required',
         'gambarart'=>'required|image',
@@ -88,5 +148,11 @@ class ArtikelController extends Controller
           'gambar_art'=>$banner
         ]);
         return redirect('/authorprofile/'.$idauthor)->with('success','Artikel berhasil ditambah');
+      }else {
+        return back();
+      }
+    }else{
+      return redirect('login');
     }
+}
 }

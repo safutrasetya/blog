@@ -17,19 +17,19 @@
         <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
           <h1 class="text-center text-light">Artikel Baru</h1>
         </div>
-        <form action="/simpanartikel" method="POST" enctype="multipart/form-data">
+        <form action="/updateartikel" method="POST" enctype="multipart/form-data">
           @csrf
-          @foreach($author as $aut)
-          <input type="text" name="id" hidden value="{{$aut->id_author}}">
-          @endforeach
+          @foreach($artikels as $art)
+          <input type="text" name="id" hidden value="{{$art->id_author}}">
+          <input type="text" name="idart" hidden value="{{$art->id_artikel}}">
           <div class="row text-white">
             <div class="col-sm">
               <div class="form-group">
-                <label for="judulart">Judul artikel : </label>
+                <label for="judul">Judul artikel : </label>
                 @error('judulart')
                 <div class="alert-danger">{{$message}}</div>
                 @enderror
-                <input autofocus type="text" class="form-control" placeholder="Masukkan judul baru" name="judulart" id="judul">
+                <input autofocus type="text" value="{{$art->judul}}" class="form-control" placeholder="Masukkan judul baru" name="judulart" id="judul">
               </div>
             </div>
             <div class="col-sm">
@@ -40,8 +40,12 @@
                 @enderror
                 <input type="file" class="form-control" name="gambarart" placeholder="">
               </div>
+              <div class="form-group">
+                <input hidden type="file" class="form-control" name="banner" value="{{$art->gambar_art}}" placeholder="">
+              </div>
             </div>
           </div>
+          @endforeach
           <div class="row text-white">
             <div class="col-sm">
               <div class="form-group">
@@ -52,13 +56,17 @@
                 @endforeach
               </div>
             </div>
+            foreach($artikels as $art)
+            <div class="">
+              <input hidden type="text" name="kategoriart" value="{{$art->id_kat}}">
+            </div>
             <div class="form-group text-white">
               <label for="Isi artikel">Isi Artikel : </label>
               @error('artikelbaru')
               <div class="alert-danger">{{$message}}</div>
               @enderror
               <div class="mb-3">
-                <textarea name="artikelbaru" class="form-control" id="artikelbaru" required></textarea>
+                <textarea name="artikelbaru" class="form-control" id="artikelbaru">{{$art->isi_art}}</textarea>
               </div>
             </div>
           </div>
