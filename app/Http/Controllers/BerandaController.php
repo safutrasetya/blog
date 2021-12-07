@@ -10,7 +10,7 @@ class BerandaController extends Controller
     //
     public function index(){
       session_start();
-      if ($_SESSION['berhasil'] == '1')  {
+      if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
         $cekartterbaru = DB::table('table_artikel')
           ->rightjoin('table_akun', 'table_artikel.id_author', '=', 'table_akun.id_akun')
           ->rightjoin('table_author', 'table_artikel.id_author', '=', 'table_author.id_author')
