@@ -13,11 +13,18 @@ class AdminAkunController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
+      session_start();
+      if ($_SESSION['berhasil'] == '1')  {
         $listakun = DB::table('table_akun')->paginate(3);
         return view('adminakun', ['listakuns'=>$listakun]);
         //return view('adminakun');
+      }
+      else {
+        return redirect('/login');
+      }
     }
 
     public function delete(Request $req)

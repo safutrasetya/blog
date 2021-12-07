@@ -21,7 +21,7 @@ class BerandaController extends Controller
         return view('beranda', ['artikelterbaru'=>$cekartterbaru])->with('berhasil', 'berhasil!');
       }
       else{
-        return view('login');
+        return redirect('/login');
       }
     }
 }

@@ -21,6 +21,7 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\FavoritController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\ArtikelAuthorController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LoginController;
 // Route::get('/profil', function () {
 //     return view('profil');
@@ -31,17 +32,24 @@ Route::get('/', function () {
 Route::resource('/profil',ProfilController::class);
 Route::get('/editprofil',[ProfilController::class, 'editprofil']);
 Route::post('/updtprofil',[ProfilController::class, 'updateprofil'] );
+
 Route::post('/daftar', [LoginController::class, 'store']);
 Route::get('/daftar', [LoginController::class, 'HalamanDaftar']);
 Route::get('/login', [LoginController::class, 'HalamanLogin']);
 Route::post('/login', [LoginController::class, 'login']);
+Route::get('/functionlogout', [LoginController::class, 'logout']);
+
+Route::get('/kategori', [KategoriController::class, 'index']);
+Route::get('/kategori/{id}', [KategoriController::class, 'detailkategori']);
+Route::get('/kategori/artikel/{id}', [KategoriController::class, 'detailartikel']);
 
 Route::get('/artikelbuat', function () {
     return view('artikel_buat');
 });
-Route::get('/adminakun', function () {
-    return view('adminakun');
-});
+// Route::get('/adminakun', [AdminAkunController::class, 'HalamanAdmin']);
+// Route::get('/adminakun', function () {
+//     return view('adminakun');
+// });
 Route::resource('/adminakun',AdminAkunController::class);
 Route::post('deleteakun', [AdminAkunController::class, 'delete']);
 Route::post('updatelvl', [AdminAkunController::class, 'updatelvl']);

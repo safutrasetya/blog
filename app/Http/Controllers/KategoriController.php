@@ -1,39 +1,51 @@
 <?php
 
 namespace App\Http\Controllers;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\tabel_akun;
 use App\Models\table_author;
-use Illuminate\Support\Facades\Hash;
+use App\Models\table_kategori;
 
-class LoginController extends Controller
+class KategoriController extends Controller
 {
-  public function store(Request $request)
+  public function index()
     {
-            $request->validate([
-              'nama' => 'required',
-              'email' => 'email:rfc,dns|unique:table_akun,email',
-              'telpon' => 'required|numeric',
-              'password' => 'required|min:8',
-              'confirm-password' => 'required|same:password',
-             ]);
-             DB::table('table_akun')->insert([
-               'nama' => ucwords(strtolower($request->nama)),
-               'email' => $request->email,
-               'pass' =>  Hash::make($request->password),
-               'no_hp' => $request->telpon,
-               'level' => 3,
-           ]);
-
-            // session_id(YOUR_SESSION_ID);
-            session_start();
-            $_SESSION['berhasil'] = '1';
-            // $_SESSION['logged_in_user_name'] = 'Tutsplus';
-
-              return redirect('/beranda')->with('berhasil', 'berhasil!')->with('cek','dikirim');
+      session_start();
+      if ($_SESSION['berhasil'] == '1') {
+      $kategori = DB::table('table_kategori')->get();
+      return view('kategori',compact('kategori'));
+    }
+    else {
+      return redirect('/login');
+    }
 
             }
+            public function detailkategori($id)
+              {
+                session_start();
+                if ($_SESSION['berhasil'] == '1') {
+                $kategori = DB::table('table_kategori')->where('id_kat',$id)->get();
+                $artikel = DB::table('table_artikel')->where('id_kat',$id)->get();
+                return view('detailkategori',compact('artikel'),compact('kategori'));
+              }
+              else {
+                return redirect('/login');
+              }
+
+                      }
+                      public function detailartikel($id)
+                        {
+                          session_start();
+                          if ($_SESSION['berhasil'] == '1') {
+                          $artikel = DB::table('table_artikel')->where('id_artikel',$id)->get();
+                          return view('detailartikel',compact('artikel'));
+                        }
+                        else {
+                          return redirect('/login');
+                        }
+
+                                }
     public function login(Request $request)
               {
                       $data =  DB::table('table_akun')->where('email',$request->email)->first();

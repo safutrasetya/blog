@@ -9,6 +9,8 @@ use App\Models\table_fav_author;
 class FavoritController extends Controller
 {
     public function index(){
+      session_start();
+      if ($_SESSION['berhasil'] == '1')  {
       $cekartfav = DB::table('table_fav_artikel')
         ->rightjoin('table_artikel', 'table_fav_artikel.id_artikel', '=', 'table_artikel.id_artikel')
         ->where('id_akun', 1)
@@ -29,4 +31,8 @@ class FavoritController extends Controller
         ->get();
       return view('favorit', ['listartfav'=>$cekartfav , 'listkatfav'=>$cekkatfav, 'listauthfav'=>$cekauthfav]);
     }
+    else {
+      return redirect('/login');
+    }
+}
 }
