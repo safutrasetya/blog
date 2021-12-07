@@ -17,7 +17,8 @@
         <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
           <h1 class="text-center text-light">Artikel Baru</h1>
         </div>
-        <form action="/tambahartikel" method="POST" enctype="multipart/form-data">
+        <form action="/simpanartikel" method="POST" enctype="multipart/form-data">
+          @csrf
           @foreach($author as $aut)
           <input type="text" name="id" hidden value="{{$aut->id_author}}">
           @endforeach
@@ -31,7 +32,18 @@
             <div class="col-sm">
               <div class="form-group">
                 <label for="gambar">Banner Artikel : </label>
-                <input required type="file" class="form-control" name="gambarart" placeholder="">
+                <input type="file" class="form-control" name="gambarart" placeholder="">
+              </div>
+            </div>
+          </div>
+          <div class="row text-white">
+            <div class="col-sm">
+              <div class="form-group">
+                <label for="kategori">Kategori : </label>
+                <select size="1" class="form-control" id="kategori" name="kategori">
+                @foreach($kategoris as $data)
+                 <option value="{{$data->id_kat}}">{{$data->nama_kat}}</option>
+                @endforeach
               </div>
             </div>
           </div>
@@ -41,27 +53,13 @@
 	            <textarea name="artikelbaru" class="form-control" id="artikelbaru"></textarea>
 	          </div>
           </div>
-          <div class="row text-white">
-            <div class="col-sm">
-              <div class="form-group">
-                <label for="kategori">Kategori : </label>
-                <select class="form-control" id="kategori" name="kategori">
-                @foreach($kategoris as $data)
-                 <option value="{{$data->id_kat}}">{{$data->nama_kat}}</option>
-                @endforeach
-              </div>
-            </div>
-            <div class="col-sm">
-              <div class="form-group">
-                <input hidden type="text" class="form-control" placeholder="for example, Dea Warjayu, Supratman Sukuma.">
-              </div>
-            </div>
-          </div>
-          <div class="d-flex flex-row bd-highlight justify-content-end">
-            <button type="submit" class="btn btn-success btn-lg">POST</button>
-          </div>
+          <div class="row col-sm-12 justify-content-end">
+            <button type="submit" class="btn btn-success btn-lg">Save Changes</button>
+
         </form>
+        <!-- <div class="row col-sm-12 justify-content-end mt-1"> -->
         <a href="/beranda"><button class="mx-2 btn btn-dark btn-lg text-white">Discard</button></a>
+      </div>
       </div>
     </div>
     <!-- WYSIWYG untuk editor sinopsis -->

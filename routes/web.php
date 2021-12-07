@@ -115,7 +115,7 @@ Route::post('/deletekategori', [adminKategoriController::class, 'delete']);
 Route::get('searchkategori',[adminKategoriController::class,'search'])->name('search');
 //LINE IMMANUEL
 Route::get('/authorartikel/{idauthor}/artikelbuat',[ArtikelController::class,'tambah']);
-Route::post('/tambahartikel',[ArtikelController::class,'tambah_proses']);
+Route::post('/simpanartikel',[ArtikelController::class,'tambah_proses']);
 //LINE YEHEXKIEL
 Route::get('/authorartikel/{idauthor}', [ArtikelAuthorController::class, 'authorartikel']);
 Route::get('/searchall', [AllSearchController::class, 'allsearch']);
