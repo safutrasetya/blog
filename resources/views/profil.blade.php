@@ -18,6 +18,7 @@
               </div>
             </div>
             <div class="card-body">
+              @include('flash-message')
               <div class="text-left">
                 @foreach($dataakun as $dataakuns)
                 <table style="font-size:25px">
@@ -37,7 +38,7 @@
             <div class="card-footer">
               <div class="row">
                 <div class="col-sm-8 text-left">
-                  <a href=""><button class="btn btn-outline-primary">Edit Profil</button></a>
+                  <a href="editprofil"><button class="btn btn-outline-primary">Edit Profil</button></a>
                   <a style="text-decoration:none; color:white; " href="/favorit"><button  class="btn btn-success" >Show Favorites</button></a>
                 </div>
                 <div class="col-sm-4">
