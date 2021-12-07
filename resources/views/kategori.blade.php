@@ -27,7 +27,7 @@
       <div class="d-flex justify-content-center">
 
       <a href="kategori/{{$k->id_kat}}">
-        <img style="height:280px; width:280px; border-radius:20%;" src="/../img/{{$k->gambar}}" alt="">
+        <img class="shadow" style="height:280px; width:280px; border-radius:20%;" src="/../img/{{$k->gambar}}" alt="">
       </a>
     </div>
       <div class="d-flex justify-content-center mb-4">

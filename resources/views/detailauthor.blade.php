@@ -31,6 +31,23 @@
    <div class="col-12 d-flex justify-content-center">
      <h5> {{$k->tanggal_lahir}} </h5> </br>
    </div>
+   <div class="d-flex justify-content-center">
+     @if ($cek == "sudah")
+     <form  class="" action="/hpsfav_aut" method="post">
+       @csrf
+         <input type="text" name="idakun" hidden value="{{$_SESSION['id']}}">
+         <input type="text" name="idaut" hidden value=" {{$k->id_author}} ">
+         <button style="background-color:white; border:none;" type="submit" > <img style="width:20px; height:20px" src="/../img/penuhhati.png" alt=""> </button>
+     </form>
+     @else
+    <form  class="" action="/tbhfav_aut" method="post">
+      @csrf
+        <input type="text" name="idakun" hidden value="{{$_SESSION['id']}}">
+        <input type="text" name="idaut" hidden value=" {{$k->id_author}} ">
+        <button style="background-color:white; border:none;" type="submit" > <img style="width:20px; height:20px" src="/../img/kosonghati.png" alt=""> </button>
+    </form>
+    @endif
+  </div>
      <div class="col-12 d-flex justify-content-around">
      <p style="text-align:justify;">"<i> {{ ucwords(strtolower($k->quote)) }} </i>"</p>
    </div>
@@ -42,7 +59,7 @@
     <div class="col-3">
       <div class="d-flex justify-content-center">
       <a href="artikel/{{$a->id_artikel}}">
-        <img style="height:170px; width:170px; border-radius:20%;" src="/../img/{{$a->gambar_art}}" alt="">
+        <img class="shadow" style="height:170px; width:170px; border-radius:20%;" src="/../img/{{$a->gambar_art}}" alt="">
       </div>
       </a>
         <a href="artikel/{{$a->id_artikel}}">

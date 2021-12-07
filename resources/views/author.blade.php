@@ -27,7 +27,7 @@
       <div class="d-flex justify-content-center">
 
       <a href="author/{{$k->id_author}}">
-        <img style="height:280px; width:280px; border-radius:20%;" src="/../img/{{$k->gambar_author}}" alt="">
+        <img class="shadow"  style="height:280px; width:280px; border-radius:20%;" src="/../img/{{$k->gambar_author}}" alt="">
       </a>
     </div>
       <div class="d-flex justify-content-center mb-4">
