@@ -57,7 +57,7 @@ class AdminAuthorController extends Controller
         $search_text = $_GET['searchi'];
         $hasil = DB::table('table_author')
         ->leftJoin('table_akun', 'table_author.id_akun_author', '=', 'table_akun.id_akun')
-        ->where('nama','LIKE', '%'.$search_text.'%')->paginate(7);;
+        ->where('nama','LIKE', '%'.$search_text.'%')->paginate(7);
         return view('adminauthorcari',['hasil'=>$hasil]);
       }
       else {
