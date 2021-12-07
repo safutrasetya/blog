@@ -1,6 +1,6 @@
 @extends ('layout.template')
 @section('judulhal')
-<title>Beranda</title>
+<title>Detail Author</title>
 @endsection
 @section('content')
 <div class="row justify-content-center pe-2 mt-4">
@@ -10,15 +10,18 @@
 
 <div class="container mt-5">
   <div class="row">
-    @foreach($kategori as $key => $k)
+    @foreach($author as $key => $k)
    <div class="col-12 d-flex justify-content-center">
-       <img style="height:500px; width:100%; border:10px solid black; margin-bottom:16px;" src="/../img/{{$k->gambar}}" alt="">
+       <img style="height:500px; width:100%; border:10px solid black; margin-bottom:16px;" src="/../img/{{$k->gambar_author}}" alt="">
    </div>
    <div class="col-12 d-flex justify-content-center">
-     <h2><strong> ~{{$k->nama_kat}}~ </strong></h2> </br>
+     <h2><strong> ~{{ ucwords(strtolower($k->nama)) }}~ </strong></h2> </br>
+   </div>
+   <div class="col-12 d-flex justify-content-center">
+     <h5> {{$k->tanggal_lahir}} </h5> </br>
    </div>
      <div class="col-12 d-flex justify-content-around">
-     <p style="text-align:justify;">" {{$k->deskripsi_kat}}"</p>
+     <p style="text-align:justify;">"<i> {{ ucwords(strtolower($k->quote)) }} </i>"</p>
    </div>
    @endforeach
   </div>
@@ -31,7 +34,9 @@
         <img style="height:170px; width:170px; border-radius:20%;" src="/../img/{{$a->gambar_art}}" alt="">
       </div>
       </a>
-      <p style="text-align:center;"><strong> {{$a->judul}} </strong></p>
+        <a href="artikel/{{$a->id_artikel}}">
+          <p style="text-align:center; text-decoration: none; color:black;"><strong style="text-decoration:none;"> {{ucwords(strtolower($a->judul)) }} </strong></p>
+        </a>
     </div>
     @endforeach
   </div>

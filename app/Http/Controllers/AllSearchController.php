@@ -14,7 +14,6 @@ class AllSearchController extends Controller
 
     public function allsearch()
     {
-      session_start();
       $search_text = $_GET['cari'];
       $hasil_kategori = DB::table('table_kategori')
       ->where('nama_kat','LIKE', '%'.$search_text.'%')
