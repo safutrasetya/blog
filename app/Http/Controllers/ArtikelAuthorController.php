@@ -20,6 +20,4 @@ class ArtikelAuthorController extends Controller
     ->first();
     return view('authorartikel', ['artikelauthor'=>$semuaartikel,'nama_author'=>$nama ]);
   }
-
-
 }
