@@ -21,25 +21,33 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\FavoritController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\ArtikelAuthorController;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\LoginController;
 // Route::get('/profil', function () {
 //     return view('profil');
 // });
-Route::get('/', function () {
-    return view('profil');
-});
+Route::resource('/',ProfilController::class);
 Route::resource('/profil',ProfilController::class);
-Route::get('/login', function () {
-    return view('login');
-});
-Route::get('/daftar', function () {
-    return view('daftar');
-});
+Route::get('/editprofil',[ProfilController::class, 'editprofil']);
+Route::post('/updtprofil',[ProfilController::class, 'updateprofil'] );
+
+Route::post('/daftar', [LoginController::class, 'store']);
+Route::get('/daftar', [LoginController::class, 'HalamanDaftar']);
+Route::get('/login', [LoginController::class, 'HalamanLogin']);
+Route::post('/login', [LoginController::class, 'login']);
+Route::get('/functionlogout', [LoginController::class, 'logout']);
+
+Route::get('/kategori', [KategoriController::class, 'index']);
+Route::get('/kategori/{id}', [KategoriController::class, 'detailkategori']);
+Route::get('/kategori/artikel/{id}', [KategoriController::class, 'detailartikel']);
+
 Route::get('/artikelbuat', function () {
     return view('artikel_buat');
 });
-Route::get('/adminakun', function () {
-    return view('adminakun');
-});
+// Route::get('/adminakun', [AdminAkunController::class, 'HalamanAdmin']);
+// Route::get('/adminakun', function () {
+//     return view('adminakun');
+// });
 Route::resource('/adminakun',AdminAkunController::class);
 Route::post('deleteakun', [AdminAkunController::class, 'delete']);
 Route::post('updatelvl', [AdminAkunController::class, 'updatelvl']);
@@ -62,11 +70,13 @@ Route::get('/adminartcari', [AdminArtikelController::class, 'searchart']);
 Route::get('/adminauthor', function () {
     return view('adminauthor');
 });
+
 Route::resource('/adminauthor',AdminAuthorController::class);
 Route::post('deleteauthor', [AdminAuthorController::class, 'deleteauth']);
 Route::get('/adminauthcari', function () { return view('adminauthorcari');});
 Route::get('/adminauthcari', [AdminAuthorController::class, 'searchauth']);
 
+Route::get('/adminkatcari', [adminKategoriController::class, 'search']);
 Route::resource('/favorit',FavoritController::class);
 Route::get('/artikeledit', function () {
     return view('artikel_edit');
@@ -81,6 +91,8 @@ Route::get('/searchakun', function () {
     return view('searchakun');
 });
 Route::get('/adminkategori',[adminKategoriController::class,'index']);
+Route::get('editkategori/{id}',[adminKategoriController::class,'edit']);
+Route::post('/updatekategori',[adminKategoriController::class,'update']);
 // Route::get('/adminkategori/delete{id}',[adminKategoriController::class,'destroy'])->name('adKategoridelete');
 Route::post('/deletekategori', [adminKategoriController::class, 'delete']);
 Route::get('searchkategori',[adminKategoriController::class,'search'])->name('search');
