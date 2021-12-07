@@ -58,17 +58,20 @@
               <div class="alert-danger">{{$message}}</div>
               @enderror
               <div class="mb-3">
-                <textarea name="artikelbaru" class="form-control" id="artikelbaru" required></textarea>
+                <textarea name="artikelbaru" class="form-control" id="artikelbaru"></textarea>
               </div>
             </div>
           </div>
-          <div class="row col-sm-12 justify-content-end">
+          <div class="d-flex flex-row bd-highlight justify-content-end">
             <button type="submit" class="btn btn-success btn-lg">Save Changes</button>
-
+          </div>
         </form>
+        @foreach($author as $aut)
+        <div class="d-flex flex-row bd-highlight justify-content-end mt-1">
+        <a href="/authorprofile/{{$aut->id_author}}"><button class="mx-2 btn btn-dark btn-lg text-white">Discard</button></a>
+        </div>
+        @endforeach
         <!-- <div class="row col-sm-12 justify-content-end mt-1"> -->
-        <a href="/beranda"><button class="mx-2 btn btn-dark btn-lg text-white">Discard</button></a>
-      </div>
       </div>
     </div>
     <!-- WYSIWYG untuk editor sinopsis -->

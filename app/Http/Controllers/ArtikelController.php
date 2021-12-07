@@ -37,7 +37,7 @@ class ArtikelController extends Controller
     {
         session_start();
         if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
-        if ($_SESSION['level'] == 2) {
+        if ($_SESSION['level'] == 2||$_SESSION['level']==1) {
         $artikels = DB::table('table_artikel')->where('id_artikel',$id)->get();
         $kategoris = DB::table('table_kategori')->get();
         return view('artikeledit',['artikels'=>$artikels,'kategoris'=>$kategoris]);
@@ -63,7 +63,7 @@ class ArtikelController extends Controller
     {
       session_start();
       if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
-        if ($_SESSION['level'] == 2) {
+          if ($_SESSION['level'] == 2||$_SESSION['level']==1) {
       $req->validate([
         'judulart'=>'required',
         'gambarart'=>'image',
@@ -109,7 +109,7 @@ class ArtikelController extends Controller
     {
       session_start();
       if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
-      if ($_SESSION['level'] == 2) {
+        if ($_SESSION['level'] == 2||$_SESSION['level']==1) {
       $kategoris = DB::table('table_kategori')->get();
       $author = DB::table('table_author')->where('id_author',$idauthor)->get();
 
@@ -128,7 +128,7 @@ class ArtikelController extends Controller
     {
       session_start();
       if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
-        if ($_SESSION['level'] == 2) {
+          if ($_SESSION['level'] == 2||$_SESSION['level']==1) {
       $req->validate([
         'judulart' => 'required',
         'gambarart'=>'required|image',
