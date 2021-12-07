@@ -137,8 +137,15 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'nama' => [
+            'required' => 'Nama Kategori Harus Diisi',
+        ],
+        'gambar' => [
+            'required' => 'Gambar Harus Diisi',
+            'image' => 'Yang Anda Upload Bukan Gambar'
+        ],
+        'deskripsi' => [
+          'required' => 'Deskripsi Kategori Harus Diisi',
         ],
     ],
 

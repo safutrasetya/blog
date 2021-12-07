@@ -64,7 +64,7 @@
           <div class="card">
             <img src="/img/" class="card-img-top" alt="...">
             <div class="card-body">
-              <h3 class="card-title">{{$authfav->nama_author}}</h3>
+              <h3 class="card-title">{{$authfav->nama}}</h3>
               <p class="card-text"></p>
               <a href="#" class="btn btn-primary">Selengkapnya</a>
             </div>
