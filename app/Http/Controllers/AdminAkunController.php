@@ -18,8 +18,14 @@ class AdminAkunController extends Controller
     {
       session_start();
       if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
+        if ($_SESSION['level'] == 1) {
+          // code...
         $listakun = DB::table('table_akun')->paginate(3);
         return view('adminakun', ['listakuns'=>$listakun]);
+      }
+      else {
+        return back();
+      }
         //return view('adminakun');
       }
       else {
