@@ -12,9 +12,9 @@
   <div class="col-auto">
     <table>
         <tr>
-            <th><button type="button" class="btn btn-outline-dark"><a href="/beranda"> Semua</a></button></th>
-            <th><button type="button" class="btn btn-outline-dark"><a href="/kategori"> Kategori </a></button></th>
-            <th><button type="button" class="btn btn-outline-dark"><a href="/author"> Author </a></button></th>
+          <th><a href="/beranda"><button type="button" class="btn btn-outline-dark"> Semua </button></a></th>
+          <th><a href="/kategori"><button type="button" class="btn btn-outline-dark"> Kategori </button></a></th>
+          <th><a href="/author"><button type="button" class="btn btn-outline-dark">Author</button></a></th>
         </tr>
     </table>
   </div>
