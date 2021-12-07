@@ -34,7 +34,7 @@ class KategoriController extends Controller
           // $akun = DB::table('table_akun')->where('id_akun',$author[0]->id_akun_author)->get();
           $author = DB::table('table_author')
           ->leftJoin('table_akun', 'table_author.id_akun_author', '=', 'table_akun.id_akun')
-          ->select('table_akun.nama', 'table_akun.email','table_author.id_author')
+          ->select('table_akun.nama', 'table_akun.email','table_author.id_author','table_author.gambar_author','table_author.tanggal_lahir','table_author.quote')
           ->get();
           return view('author',['author'=>$author]);
         }
@@ -70,5 +70,24 @@ class KategoriController extends Controller
                         }
 
                                 }
+                                public function detailauthor($id)
+                                  {
+                                    session_start();
+                                    if (isset($_SESSION['berhasil'])) {
+                                    if ($_SESSION['berhasil'] == '1') {
+                                    $author = DB::table('table_author')
+                                    ->leftJoin('table_akun', 'table_author.id_akun_author', '=', 'table_akun.id_akun')
+                                    ->select('table_akun.nama', 'table_akun.email','table_author.id_author','table_author.gambar_author','table_author.tanggal_lahir','table_author.quote')
+                                    ->where('table_author.id_author',$id)
+                                    ->get();
+                                    $artikel = DB::table('table_artikel')->where('id_author',$author[0]->id_author)->get();
+                                    return view('detailauthor',compact('artikel'),compact('author'));
+                                  }
+                                }
+                                  else {
+                                    return redirect('/login');
+                                  }
+
+                                          }
 
 }
