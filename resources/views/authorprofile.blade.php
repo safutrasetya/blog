@@ -22,7 +22,6 @@
             <div class="card-body">
               <div class="text-left">
                   <p class="h3">{{$dataakuns->nama}}</p>
-                  @endforeach
               </div>
             </div>
             <div class="card-footer">
@@ -33,8 +32,12 @@
                 <div class="col-sm-5">
                   <a href=""><button class="btn btn-warning float-end">Masukkan ke favorit</button></a>
                 </div>
+                <div class="col-sm-4 text-left mt-2">
+                <a href="/authorartikel/{{$dataakuns->id_author}}/artikelbuat"><button type="button" class="btn btn-success" name="button">Tambah Artikel</button></a>
+              </div>
               </div>
             </div>
+            @endforeach
           </div>
         </div>
         <div class="col-sm-6">

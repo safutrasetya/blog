@@ -33,12 +33,21 @@
       $idkategori = $k->id_kat;
    ?>
    <div class="d-flex justify-content-center">
+     @if ($cek == "sudah")
+     <form  class="" action="/hpsfav_kat" method="post">
+       @csrf
+         <input type="text" name="idakun" hidden value="{{$_SESSION['id']}}">
+         <input type="text" name="idkat" hidden value=" {{$idkategori}} ">
+         <button style="background-color:white; border:none;" type="submit" > <img style="width:20px; height:20px" src="/../img/penuhhati.png" alt=""> </button>
+     </form>
+     @else
     <form  class="" action="/tbhfav_kat" method="post">
       @csrf
         <input type="text" name="idakun" hidden value="{{$_SESSION['id']}}">
         <input type="text" name="idkat" hidden value=" {{$idkategori}} ">
-        <button style="background-color:white; border:none;" type="button" name="button"> <img style="width:20px; height:20px" src="/../img/kosonghati.png" alt=""> </button>
+        <button style="background-color:white; border:none;" type="submit" > <img style="width:20px; height:20px" src="/../img/kosonghati.png" alt=""> </button>
     </form>
+    @endif
   </div>
      <div class="col-12 d-flex justify-content-around">
      <p style="text-align:justify;">" {{$k->deskripsi_kat}}"</p>
