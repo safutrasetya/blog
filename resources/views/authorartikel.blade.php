@@ -37,6 +37,6 @@
   // var str = 'Some very long string';
   // if(str.length > 10){
   //   str = str.substring(0,10)+"...";
-  // }
+  // }s
 </script>
 @endsection
