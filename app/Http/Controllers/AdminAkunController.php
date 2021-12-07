@@ -17,7 +17,7 @@ class AdminAkunController extends Controller
     public function index()
     {
       session_start();
-      if ($_SESSION['berhasil'] == '1')  {
+      if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
         $listakun = DB::table('table_akun')->paginate(3);
         return view('adminakun', ['listakuns'=>$listakun]);
         //return view('adminakun');

@@ -44,6 +44,9 @@ class LoginController extends Controller
                        if (Hash::check($request->password, $data->pass)) {
                          session_start();
                          $_SESSION['berhasil'] = '1';
+                         $_SESSION['nama'] = '1';
+                         $_SESSION['email'] = '1';
+                         $_SESSION['cek'] = '1';
                          return redirect('/beranda')->with('berhasil', 'berhasil!')->with('cek','dikirim');
                          }
                          return redirect('/login')->with('alert2', 'Password Anda Salah !')->with('cek','dikirim');

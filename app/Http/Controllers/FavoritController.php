@@ -10,7 +10,7 @@ class FavoritController extends Controller
 {
     public function index(){
       session_start();
-      if ($_SESSION['berhasil'] == '1')  {
+      if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
       $cekartfav = DB::table('table_fav_artikel')
         ->rightjoin('table_artikel', 'table_fav_artikel.id_artikel', '=', 'table_artikel.id_artikel')
         ->where('id_akun', 1)
