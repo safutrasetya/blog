@@ -25,6 +25,7 @@ use App\Http\Controllers\ArtikelAuthorController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AllSearchController;
+use App\Http\Controllers\ArtikelController;
 // Route::get('/profil', function () {
 //     return view('profil');
 // });
@@ -92,9 +93,9 @@ Route::get('/adminauthcari', [AdminAuthorController::class, 'searchauth']);
 
 Route::get('/adminkatcari', [adminKategoriController::class, 'search']);
 Route::resource('/favorit',FavoritController::class);
-Route::get('/artikeledit', function () {
-    return view('artikel_edit');
-});
+// Route::get('/artikeledit', function () {
+//     return view('artikel_edit');
+// });
 Route::resource('/beranda',BerandaController::class);
 Route::get('/authorprofile/{idauthor}', [ProfilController::class, 'authorprofil']);
 
@@ -113,9 +114,8 @@ Route::post('/simpankategori',[adminKategoriController::class,'upload_proses']);
 Route::post('/deletekategori', [adminKategoriController::class, 'delete']);
 Route::get('searchkategori',[adminKategoriController::class,'search'])->name('search');
 //LINE IMMANUEL
-Route::get('/artikel',function(){
-  return view('artikel');
-});
+Route::get('/authorartikel/{idauthor}/artikelbuat',[ArtikelController::class,'tambah']);
+Route::post('/tambahartikel',[ArtikelController::class,'tambah_proses']);
 //LINE YEHEXKIEL
 Route::get('/authorartikel/{idauthor}', [ArtikelAuthorController::class, 'authorartikel']);
 Route::get('/searchall', [AllSearchController::class, 'allsearch']);
