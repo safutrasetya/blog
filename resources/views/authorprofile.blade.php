@@ -25,7 +25,6 @@
                     <td>Nama </td><td>: {{$dataakuns->nama}}</td>
                   </tr>
                 </table>
-                @endforeach
               </div>
             </div>
             <div class="card-footer">
@@ -37,8 +36,12 @@
                 <div class="col-sm-4">
                   <button class="btn btn-danger float-end">Logout</button>
                 </div>
+                <div class="col-sm-4 text-left mt-2">
+                <a href="/authorartikel/{{$dataakuns->id_author}}/artikelbuat"><button type="button" class="btn btn-success" name="button">Tambah Artikel</button></a>
+              </div>
               </div>
             </div>
+            @endforeach
           </div>
         </div>
         <div class="col-sm-6">
