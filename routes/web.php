@@ -15,6 +15,7 @@ use App\Http\Controllers\adminKategoriController;
 */
 //LINE SAFUTRA
 use App\Http\Controllers\AdminAkunController;
+use App\Http\Controllers\AdminAdminController;
 use App\Http\Controllers\AdminArtikelController;
 use App\Http\Controllers\AdminAuthorController;
 use App\Http\Controllers\ProfilController;
@@ -58,6 +59,12 @@ Route::get('/adminakuncari', function () {
     return view('adminakuncari');
 });
 Route::get('/adminakuncari', [AdminAkunController::class, 'searchakun']);
+Route::resource('/adminadmin',AdminAdminController::class);
+Route::get('/adminadmincari', function () {
+    return view('adminadmincari');
+});
+Route::get('/adminadmincari', [AdminAdminController::class, 'searchadmin']);
+Route::post('downgradelvl', [AdminAkunController::class, 'downgradelvl']);
 
 Route::get('/adminartikel', function () {
     return view('adminartikel');

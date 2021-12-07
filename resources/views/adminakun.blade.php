@@ -16,6 +16,8 @@
           <h5 class="modal-title waaww" id="exampleModalLabel">Catatan here?</h5>
           <div class="mb-3">
             <input name="idakun" type="text" class="form-control" id="idakun">
+            <input class="" type="radio" name="levelakun" id="admin" value="1">
+            <label class="form-check-label" for="admin">Admin</label>
             <input class="" type="radio" name="levelakun" id="author" value="2">
             <label class="form-check-label" for="author">Author</label>
             <input class="" type="radio" name="levelakun" id="regular" value="3">
@@ -74,6 +76,9 @@
           <li class="nav-item">
             <a class="nav-link" href="adminauthor">Author</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="adminadmin">Admin</a>
+          </li>
         </ul>
       </div>
       <div class="col-sm-4">
@@ -110,9 +115,11 @@
             <td>{{$akun->no_hp}}</td>
             <td>{{$akun->nama_level}}</td>
             <td>
+              @if($akun->level!=1)
               <input type="text" value="" hidden>
               <button name="updtlvl" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalupdt" idakun="{{$akun->id_akun}}" data-lvl="{{$akun->level}}"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit Akun</button></a>
               <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalhapus" data-bs-whatever="{{$akun->id_akun}}" namaakun="{{$akun->nama}}"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</button>
+              @endif
             </td>
           </tr>
           @endforeach
@@ -172,6 +179,8 @@
         document.getElementById("author").checked = true;
       }else if (statuslevel==3){
         document.getElementById("regular").checked = true;
+      }else if (statuslevel==1){
+        document.getElementById("admin").checked = true;
       }
     });
 </script>
