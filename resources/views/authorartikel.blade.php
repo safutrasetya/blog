@@ -23,13 +23,13 @@
           <p class="isiartikel">{{$artikel->isi_art}}</p>
           <a href="/kategori/artikel/{{$artikel->id_artikel}}">(Baca Selengkapnya...)</a>
           <a href="/artikeledit/{{$artikel->id_artikel}}"><button type="button" class="btn btn-success" name="button">Edit Artikel</button></a>
+          <a href="/artikelhapus/{{$artikel->id_artikel}}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');"><button type="button" class="btn btn-danger" name="btnDel">Hapus</button></a>
         </div>
       </div>
     </div>
     @endforeach
   </div>
 </div>
-
 <script>
   $("p.isiartikel").text(function(index, currentText) {
     return currentText.substr(0, 190)+"...";
