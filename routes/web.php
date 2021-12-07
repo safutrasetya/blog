@@ -90,6 +90,7 @@ Route::get('/artikel',function(){
 });
 //LINE YEHEXKIEL
 Route::get('/authorartikel/{idauthor}', [ArtikelAuthorController::class, 'authorartikel']);
+Route::get('/searchall', [AllSearchController::class, 'allsearch']);
 //LINE RIZKI
 // Route::get('/favorit',function(){
 //   return view('favorit');
