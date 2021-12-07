@@ -23,6 +23,7 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\ArtikelAuthorController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AllSearchController;
 // Route::get('/profil', function () {
 //     return view('profil');
 // });

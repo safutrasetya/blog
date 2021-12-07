@@ -18,7 +18,8 @@
         <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
           <h1 class="text-dark">Search</h1>
         </div>
-        <form action="#" autocomplete="on">
+        <!-- search -->
+        <form  method="GET" action="{{url('/searchall')}} ">
           <div class="row">
             <div class="col-sm-11">
               <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Search...">
@@ -28,51 +29,56 @@
             </div>
           </div>
         </form>
+
         <div class="">
           <div class="shadow px-3 my-2">
             <p class="display-4">Artikel</p>
           </div>
           <div class="row">
+            @foreach($search_artikel as $artikel)
             <div class="col-sm-3">
               <div class="card cardwidth1">
                 <div class="card-head">
-                  <img src="img/testimg (1).jpg" class="imgsearch1">
+                  <img src="/img/{{$artikel->gambar_art}}" class="imgsearch1">
                 </div>
                 <div class="card-body">
-                  <a class="stretched-link" href="#"><p class="h5">TEST JUDUL ARTIKEL</p></a>
+                  <a class="stretched-link" href="#"><p class="h5">{{$artikel->judul}}</p></a>
                 </div>
               </div>
+              @endforeach
             </div>
           </div>
           <div class="shadow px-3 my-2 py-1">
             <p class="display-4">Kategori</p>
           </div>
           <div class="row">
+            @foreach($search_kategori as $kategori)
             <div class="col-sm-3">
               <div class="card cardwidth2">
                 <div class="card-head">
-                  <img src="img/testimg (1).jpg" class="imgsearch2">
+                  <img src="/img/{{$kategori->gambar}}" class="imgsearch2">
                 </div>
                 <div class="card-body">
-                  <a class="stretched-link" href="#"><p class="h5">TEST kategori</p></a>
+                  <a class="stretched-link" href="#"><p class="h5">{{$kategori->nama_kat}}</p></a>
                 </div>
               </div>
             </div>
+            @endforeach
           </div>
           <div class="shadow px-3 my-2">
             <p class="display-4">Author</p>
           </div>
           <div class="row">
-            <div class="col-sm-2">
-              <div class="card cardwidth3">
-                <div class="card-head">
-                  <img src="img/testimg (1).jpg" class="imgsearch3">
-                </div>
-                <div class="card-body">
-                  <a class="stretched-link" href="#"><p class="h5">TEST NAMA AUTHOR</p></a>
-                </div>
+            @foreach($search_author as $author)
+            <div class="card">
+              <div class="card-header">
+                {{$author->nama}}
+              </div>
+              <div class="card-body">
+                <a href="#" class="btn btn-info">details</a>
               </div>
             </div>
+            @endforeach
           </div>
         </div>
       </div>
