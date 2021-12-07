@@ -9,6 +9,24 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
+  public function store(Request $request)
+  {
+    $request->validate([
+    'nama' => 'required',
+    'email' => 'email:rfc,dns|unique:table_akun,email',
+    'telpon' => 'required|numeric',
+    'password' => 'required|min:8',
+    'confirm-password' => 'required|same:password',
+    ]);
+    DB::table('table_akun')->insert([
+    'nama' => ucwords(strtolower($request->nama)),
+    'email' => $request->email,
+    'pass' =>  Hash::make($request->password),
+    'no_hp' => $request->telpon,
+    'level' => 3,
+    ]);
+    return redirect('/login');
+  }
 
 public function login(Request $request)
 {
