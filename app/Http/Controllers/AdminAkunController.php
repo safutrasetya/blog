@@ -65,10 +65,9 @@ class AdminAkunController extends Controller
         );
         if($levelakun==2){
           $searchnama = DB::table('table_akun')->where('id_akun',$idupdt)->first();
-          $namaauth = $searchnama->nama;
           $instagram = "https://www.instagram.com/";
           $twitter= "https://twitter.com/";
-          $newauth = array('id_akun_author'=>$idupdt,'nama_author'=>$namaauth,'instagram'=>$instagram,'twitter'=>$twitter);
+          $newauth = array('id_akun_author'=>$idupdt,'instagram'=>$instagram,'twitter'=>$twitter);
           $addtoauthor = DB::table('table_author')->insert($newauth);
         }elseif($levelakun==3){
           $cariauth = DB::table('table_author')->where('id_akun_author',$idupdt)->delete();

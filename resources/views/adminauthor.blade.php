@@ -50,6 +50,9 @@
           <li class="nav-item">
             <a class="nav-link active" href="adminauthor">Author</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="adminadmin">Admin</a>
+          </li>
         </ul>
       </div>
       <div class="col-sm-4">
