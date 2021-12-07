@@ -51,7 +51,7 @@ class LoginController extends Controller
           public function HalamanLogin(Request $request)
                     {
                                session_start();
-                               if (isset($_SESSION['berhasil'])) {
+                               if (isset($_SESSION['berhasil']) && $_SESSION['berhasil'] == "1") {
                                  return back();
                                }
                                else {
@@ -61,7 +61,7 @@ class LoginController extends Controller
                 public function HalamanDaftar(Request $request)
                           {
                             session_start();
-                            if ($_SESSION['berhasil'] == "1") {
+                            if (isset($_SESSION['berhasil'])&& $_SESSION['berhasil'] == "1") {
                               return back();
                             }
                             else {
