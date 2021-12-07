@@ -53,30 +53,31 @@ class LoginController extends Controller
                          }
                          return redirect('/login')->with('alert2', 'Password Anda Salah !')->with('cek','dikirim');
           }
-          public function HalamanLogin(Request $request)
-                    {
-                               session_start();
-                               if (isset($_SESSION['berhasil']) && $_SESSION['berhasil'] == "1") {
-                                 return back();
-                               }
-                               else {
-                                 return view('login');
-                               }
+    public function HalamanLogin(Request $request)
+              {
+                         session_start();
+                         if (isset($_SESSION['berhasil']) && $_SESSION['berhasil'] == "1") {
+                           return back();
+                         }
+                         else {
+                           return view('login');
+                         }
+          }
+    public function HalamanDaftar(Request $request)
+              {
+                session_start();
+                if (isset($_SESSION['berhasil'])&& $_SESSION['berhasil'] == "1") {
+                  return back();
                 }
-                public function HalamanDaftar(Request $request)
-                          {
-                            session_start();
-                            if (isset($_SESSION['berhasil'])&& $_SESSION['berhasil'] == "1") {
-                              return back();
-                            }
-                            else {
-                              return view('daftar');
-                      }
-                    }
-                    public function logout(Request $request)
-                              {
-                                session_start();
-                              $_SESSION['berhasil'] = "0";
-                                  return redirect('/login');
-                        }
+                else {
+                  return view('daftar');
+          }
+        }
+    public function logout(Request $request)
+              {
+                session_start();
+              $_SESSION['berhasil'] = "0";
+                session_destroy();
+                  return redirect('/login');
+        }
 }
