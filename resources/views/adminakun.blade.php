@@ -15,7 +15,7 @@
         <div class="modal-body">
           <h5 class="modal-title waaww" id="exampleModalLabel">Catatan here?</h5>
           <div class="mb-3">
-            <input name="idakun" type="text" class="form-control" id="idakun">
+            <input hidden name="idakun" type="text" class="form-control" id="idakun">
             <input class="" type="radio" name="levelakun" id="admin" value="1">
             <label class="form-check-label" for="admin">Admin</label>
             <input class="" type="radio" name="levelakun" id="author" value="2">
@@ -44,7 +44,7 @@
         <div class="modal-body">
           <h5 class="modal-title waaw" id="exampleModalLabel">Catatan here?</h5>
           <div class="mb-3">
-            <input name="idakun" type="text" class="form-control" id="idakun">
+            <input hidden name="idakun" type="text" class="form-control" id="idakun">
           </div>
         </div>
         <div class="modal-footer">

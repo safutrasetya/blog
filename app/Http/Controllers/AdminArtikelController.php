@@ -12,10 +12,10 @@ class AdminArtikelController extends Controller
       if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
         if ($_SESSION['level'] == 1) {
         $listart = DB::table('table_artikel')
-                        ->leftJoin('table_kategori', 'table_artikel.id_kat', '=', 'table_kategori.id_kat')
-                        ->rightJoin('table_author', 'table_artikel.id_author', '=', 'table_author.id_author')
-                        ->rightJoin('table_akun', 'table_author.id_akun_author', '=', 'table_akun.id_akun')
-                        ->paginate(7);
+        ->leftJoin('table_kategori', 'table_artikel.id_kat', '=', 'table_kategori.id_kat')
+        ->rightJoin('table_author', 'table_artikel.id_author', '=', 'table_author.id_author')
+        ->rightJoin('table_akun', 'table_author.id_akun_author', '=', 'table_akun.id_akun')
+        ->paginate(7);
         $listkat = DB::table('table_kategori')->get();
         return view('adminartikel', ['listarts'=>$listart,'allkategori'=>$listkat]);
       }

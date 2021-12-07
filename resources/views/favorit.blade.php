@@ -34,7 +34,7 @@
             <img src="/img/{{$artfav->gambar_art}}" class="card-img-top" alt="...">
             <div class="card-body">
               <h3 class="card-title">{{$artfav->judul}}</h3>
-              <p class="card-text isiartikel">{{$artfav->isi}}</p>
+              <p class="card-text isiartikel">{{$artfav->isi_art}}</p>
               <a class="stretched-link" href="kategori/artikel/{{$artfav->id_artikel}}" class="btn btn-primary">Baca Selengkapnya</a>
             </div>
           </div>

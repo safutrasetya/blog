@@ -71,6 +71,10 @@ class AdminAkunController extends Controller
           $addtoauthor = DB::table('table_author')->insert($newauth);
         }elseif($levelakun==3){
           $cariauth = DB::table('table_author')->where('id_akun_author',$idupdt)->delete();
+        }elseif($levelakun==1){
+          $searchnama = DB::table('table_akun')->where('id_akun',$idupdt)->first();
+          $newauth = array('id_akun_admin'=>$idupdt);
+          $addtoauthor = DB::table('table_admin')->insert($newauth);
         }
         return redirect('adminakun')->with('success','Level akun telah diupdate!!');
       }
@@ -88,7 +92,10 @@ class AdminAkunController extends Controller
       if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
         if ($_SESSION['level'] == 1) {
         $search_text = $_GET['searchi'];
-        $hasil = DB::table('table_akun')->where('nama','LIKE', '%'.$search_text.'%')->paginate(7);
+        $hasil = DB::table('table_akun')
+        ->rightjoin('table_levelnama', 'table_akun.level','=','table_levelnama.id_level')
+
+        ->where('nama','LIKE', '%'.$search_text.'%')->paginate(7);
         return view('adminakuncari',['hasil'=>$hasil]);
       }
       else {
