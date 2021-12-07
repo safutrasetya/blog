@@ -25,9 +25,7 @@ use App\Http\Controllers\LoginController;
 // Route::get('/profil', function () {
 //     return view('profil');
 // });
-Route::get('/', function () {
-    return view('profil');
-});
+Route::resource('/',ProfilController::class);
 Route::resource('/profil',ProfilController::class);
 Route::get('/editprofil',[ProfilController::class, 'editprofil']);
 Route::post('/updtprofil',[ProfilController::class, 'updateprofil'] );
