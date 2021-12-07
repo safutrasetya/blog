@@ -13,7 +13,7 @@
         </li>
       </ul>
       <div>
-      <a href="" style ="text-decoration: none; color: black">  <i class="fas fa-plus"></i></a>
+      <a href="" style ="text-decoration: none; color: black"> <img src="/img/plus.jpg" alt="" width="30px" ></a>
       </div>
       <div>
       <a class="aboutus.php" style ="text-decoration: none; font-size: 16px; margin-top: 6px; margin-left: 10px; color: black" href="/beranda" class="fs-4" >Beranda</a>
