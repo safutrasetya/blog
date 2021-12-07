@@ -2,7 +2,7 @@
 <!-- navbar (tombol tambah artikel, beranda, favorit, admincontrol,search,profil(profil,logout)) -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top d-flex justify-content-start" style="margin-bottom: 10px">
   <div class="container-fluid">
-    <a class="aboutus.php" style ="text-decoration: none; font-size: 16px; margin-top: 6px; margin-left: 10px; color: black" href="/artikel" class="fs-4" >Art & Culture</a>
+    <a class="aboutus.php" style ="text-decoration: none; font-size: 16px; margin-top: 6px; margin-left: 10px; color: black" href="/beranda" class="fs-4" >Art & Culture</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,18 +12,22 @@
 
         </li>
       </ul>
+      @if($_SESSION['level']==2||$_SESSION['level']==1)
       <div>
-      <a href="" style ="text-decoration: none; color: black">  <i class="fas fa-plus"></i></a>
+      <a href="" style ="text-decoration: none; color: black"> <img src="/img/plus.jpg" alt="" width="30px" ></a>
       </div>
+      @endif
       <div>
       <a class="aboutus.php" style ="text-decoration: none; font-size: 16px; margin-top: 6px; margin-left: 10px; color: black" href="/beranda" class="fs-4" >Beranda</a>
       </div>
       <div>
       <a class="aboutus.php" style ="text-decoration: none; font-size: 16px; margin-top: 6px; margin-left: 10px; color: black" href="/favorit" class="fs-4" >Favorit</a>
       </div>
+      @if($_SESSION['level']==1)
       <div>
       <a class="aboutus.php" style ="text-decoration: none; font-size: 16px; margin-top: 6px; margin-left: 10px; color: black" href="/adminakun" class="fs-4" >Admin Control</a>
       </div>
+      @endif
       <form class="d-flex" method="get" action="{{url('/searchall')}} " style="margin-left: 10px;">
           <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="cari">
           <button class="btn btn-outline-success" type="submit">Search</button>

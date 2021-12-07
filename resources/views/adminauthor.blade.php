@@ -94,6 +94,15 @@
           @endforeach
         </tbody>
       </table>
+      {{ $listauthors->firstItem() }}
+        sampai
+      {{ $listauthors->lastItem() }}
+        dari
+      {{  $listauthors->total()}}
+
+      <div class="d-flex justify-content-center">
+         {{ $listauthors->links("pagination::bootstrap-4") }}
+      </div>
     </div>
   </div>
 </div>

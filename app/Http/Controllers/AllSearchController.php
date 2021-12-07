@@ -28,6 +28,6 @@ class AllSearchController extends Controller
       return view('search',[
         'search_kategori'=>$hasil_kategori,
         'search_artikel'=>$hasil_artikel,
-        'search_author'=>$hasil_artikel]);
+        'search_author'=>$hasil_author]);
     }
 }

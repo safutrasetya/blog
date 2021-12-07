@@ -6,7 +6,7 @@
 <div class="container shadow-lg p-3 h-100" style="height: 750px;">
   <div class="jumbotron bg-secondary mx-auto p-5" style="height: 750px;">
     <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
-      <h1 class="text-center">Profil TEST USER</h1>
+      <h1 class="text-center">Profil {{$_SESSION['nama']}}</h1>
     </div>
     <div class="mx-auto">
       <div class="row">
@@ -23,13 +23,13 @@
                 @foreach($dataakun as $dataakuns)
                 <table style="font-size:25px">
                   <tr>
-                    <td>Nama </td><td>: {{$dataakuns->nama}}</td>
+                    <td>Nama </td><td>: {{$_SESSION['nama']}}</td>
                   </tr>
                   <tr>
-                    <td>Email </td><td>: {{$dataakuns->email}}</td>
+                    <td>Email </td><td>: {{$_SESSION['email']}}</td>
                   </tr>
                   <tr>
-                    <td>Level </td><td>: {{$dataakuns->level}}</td>
+                    <td>Level </td><td>: {{$_SESSION['level']}}</td>
                   </tr>
                 </table>
                 @endforeach

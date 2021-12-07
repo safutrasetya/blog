@@ -57,9 +57,9 @@
   </div>
 </div>
 <div class="jumbotron p-3 h-100" style="height: 750px;">
-  <div class="jumbotron bg-secondary mx-auto p-5">
+  <div class="jumbotron mx-auto p-5">
     <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
-      <h1 class="text-center text-light">Admin Control Room</h1>
+      <h1 class="text-center">Admin Control Room</h1>
     </div>
     @include('flash-message')
     <div class="row">
@@ -93,7 +93,7 @@
       </div>
     </div>
     <div class="row">
-      <table class="table table-bordered">
+      <table class="table table-bordered bg-info">
         <thead>
           <tr>
             <th>Id artikel</th>
@@ -106,10 +106,10 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($hasil as $art)
+          @foreach($hasil as $key=>$art)
           <tr>
             <td>{{$art->id_artikel}}</td>
-            <td>{{$art->nama_author}}</td>
+            <td>{{$art->nama}}</td>
             <td>{{$art->judul}}</td>
             <td>
               <div class="overflow-auto" style="height: 150px;">
@@ -126,6 +126,14 @@
           @endforeach
         </tbody>
       </table>
+      {{ $hasil->firstItem() }}
+        sampai
+      {{ $hasil->lastItem() }}
+        dari
+      {{  $hasil->total()}}
+
+      <div class="d-flex justify-content-center">
+         {{ $hasil->links("pagination::bootstrap-4") }}
     </div>
   </div>
 </div>

@@ -17,10 +17,22 @@ class adminKategoriController extends Controller
      */
     public function index()
     {
+      session_start();
+      if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
+        if ($_SESSION['level'] == 1) {
         // $aKategoris = DB::select('SELECT * FROM table_kategori');
         // return view('adminKategori',['aKategoris'=>$aKategoris]);
         $kategoris = table_kategori::paginate(5);
         return view('adminkategori',['kategoris'=>$kategoris]);
+      }
+      else {
+        return back();
+      }
+        //return view('adminakun');
+      }
+      else {
+        return redirect('/login');
+      }
     }
 
     /**
@@ -63,8 +75,20 @@ class adminKategoriController extends Controller
      */
     public function edit($id)
     {
+      session_start();
+      if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
+        if ($_SESSION['level'] == 1) {
         $kategoris = DB::table('table_kategori')->where('id_kat',$id)->get();
         return view('editkategori',['kategoris'=>$kategoris]);
+      }
+      else {
+        return back();
+      }
+        //return view('adminakun');
+      }
+      else {
+        return redirect('/login');
+      }
     }
 
     /**
@@ -76,6 +100,9 @@ class adminKategoriController extends Controller
      */
     public function update(Request $req)
     {
+      session_start();
+      if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
+        if ($_SESSION['level'] == 1) {
       $req->validate([
         'nama' => 'required',
         'gambar'=>'image',
@@ -103,12 +130,33 @@ class adminKategoriController extends Controller
       return redirect('adminkategori')->with('success','Kategori berhasil diubah');
 
     }
+    else {
+      return back();
+    }
+      //return view('adminakun');
+    }
+    else {
+      return redirect('/login');
+    }
+  }
     public function search(Request $request)
     {
+      session_start();
+      if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
+        if ($_SESSION['level'] == 1) {
       $keyword = $request->carikat;
       $kategoris = table_kategori::where('nama_kat','like',"%".$keyword."%")->paginate(2);
       return view('adminkatcari',['kategoris'=>$kategoris]);
     }
+    else {
+      return back();
+    }
+      //return view('adminakun');
+    }
+    else {
+      return redirect('/login');
+    }
+  }
     /**
      * Remove the specified resource from storage.
      *
@@ -123,18 +171,45 @@ class adminKategoriController extends Controller
     }
     public function delete(Request $req)
     {
+      session_start();
+      if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
+        if ($_SESSION['level'] == 1) {
         $iddel= $req->idkat;
         $searchid = DB::table('table_kategori')->where('id_kat',$iddel)->delete();
         return back()->with('success','Kategori telah dihapus!');
         // return redirect()->route('/adminakun')
         // ->with('success','Akun telah dihapus!');
+      }
+      else {
+        return back();
+      }
+        //return view('adminakun');
+      }
+      else {
+        return redirect('/login');
+      }
     }
     public function upload()
     {
+      session_start();
+      if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
+        if ($_SESSION['level'] == 1) {
       return view('tambahkategori');
     }
+    else {
+      return back();
+    }
+      //return view('adminakun');
+    }
+    else {
+      return redirect('/login');
+    }
+  }
     public function upload_proses(Request $req)
     {
+      session_start();
+      if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
+        if ($_SESSION['level'] == 1) {
       $req->validate([
         'nama'  =>'required',
         'gambar'=>'required|image',
@@ -153,5 +228,14 @@ class adminKategoriController extends Controller
       return redirect('adminkategori')->with('success','Kategori berhasil ditambah');
 
     }
+    else {
+      return back();
+    }
+      //return view('adminakun');
+    }
+    else {
+      return redirect('/login');
+    }
+  }
 
 }

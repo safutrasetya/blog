@@ -9,13 +9,13 @@ use App\Models\table_author;
 class ProfilController extends Controller
 {
     public function index(){
-      $idakun = 1;
+      session_start();
       $dataakun = DB::table('table_akun')
-        ->where('id_akun', $idakun)->get();
+        ->where('id_akun', $_SESSION['id'])->get();
       $datafav = DB::table('table_fav_artikel')
         ->leftJoin('table_artikel', 'table_fav_artikel.id_artikel', '=', 'table_artikel.id_artikel')
         ->leftjoin('table_kategori', 'table_fav_artikel.id_kategori', '=', 'table_kategori.id_kat')
-        ->where('id_akun' , $idakun)
+        ->where('id_akun' , $_SESSION['id'])
         ->orderBy('id_favArt', 'desc')
         ->skip(0)->take(2)
         ->get();
@@ -24,6 +24,7 @@ class ProfilController extends Controller
     }
 
     public function authorprofil($idauthor){
+      session_start();
       $dataauthor = Db::table('table_author')
         ->rightjoin('table_akun', 'table_author.id_author', '=', 'table_akun.id_akun')
         ->where('id_author', $idauthor)
@@ -36,6 +37,7 @@ class ProfilController extends Controller
       return view('authorprofile', ['dataauthor'=>$dataauthor,'dataart'=>$dataartauth]);
     }
     public function editprofil(){
+      session_start();
       $idakunedit = 1;
       $dataakunedit = DB::table('table_akun')
       ->where('id_akun', $idakunedit)
@@ -43,6 +45,7 @@ class ProfilController extends Controller
       return view('editakun', ['listdata'=>$dataakunedit]);
     }
     public function updateprofil(Request $req){
+      session_start();
       $idakun = $req->idakun;
       $nama = $req->nama;
       $nohp = $req->nohp;
