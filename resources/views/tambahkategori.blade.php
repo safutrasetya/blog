@@ -9,18 +9,18 @@
     <!--WYSIWYG script-->
     <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
     <!--END WYSIWYG-->
-    <title>Edit Kategori</title>
+    <title>Tambah Kategori</title>
   </head>
   <body class="bg-dark">
     <div class="jumbotron p-3 h-100" style="height: 750px;">
       <div class="jumbotron bg-secondary mx-auto p-5" style="height: 750px;">
         <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
-          <h1 class="text-center text-light">Edit Kategori</h1>
+          <h1 class="text-center text-light">Tambah Kategori</h1>
         </div>
-        @foreach( $kategoris as $data)
-        <form action="/updatekategori" method="post" enctype="multipart/form-data">
-          @csrf
-          <input type="hidden" name="id" value="{{$data->id_kat}}"></br>
+
+        <form action="/simpankategori" method="post" enctype="multipart/form-data">
+          {{ csrf_field() }}
+          <input type="hidden" name="id" value=""></br>
           <div class="row text-white">
             <div class="col-sm">
               <div class="form-group">
@@ -28,7 +28,7 @@
                 @error('nama')
                 <div class="alert-danger">{{ $message }}</div>
                 @enderror
-                <input autofocus type="text" class="form-control" name="nama" id="nama" value="{{$data->nama_kat}}" placeholder="Masukkan nama baru...">
+                <input autofocus type="text" class="form-control" name="nama" id="nama" value="" placeholder="Masukkan nama kategori...">
               </div>
             </div>
             <div class="col-sm">
@@ -39,10 +39,6 @@
                 @enderror
                 <input type="file" class="form-control" name="gambar" id="gambar" placeholder="">
                 <p style="margin-left:">Gambar harus berformat jpeg,jpg atau png</p>
-            <!-- <img src="img/{{$data->gambar}}" alt="{{$data->gambar}}" width="100px" height="100px"> -->
-              </div>
-              <div class="form-group">
-                <input hidden type="file" class="form-control" name="gambarkat" value="{{$data->gambar}}" placeholder="">
               </div>
             </div>
           </div>
@@ -52,7 +48,7 @@
               @error('deskripsi')
               <div class="alert-danger">{{ $message }}</div>
               @enderror
-	           <textarea type="text" class="form-control" name="deskripsi" id="desKat" style="height:200px">{{$data->deskripsi_kat}}</textarea>
+	           <textarea class="form-control" style="height:200px" type="text" name="deskripsi" id="desKat"></textarea>
             </div>
           </div>
           <div class="d-flex flex-row bd-highlight justify-content-end">
@@ -62,7 +58,7 @@
         <div class="d-flex flex-row bd-highlight justify-content-end mt-1">
         <a href="/adminkategori"><button class="mx-2 btn btn-dark btn-lg text-white">Discard</button></a>
       </div>
-        @endforeach
+
       </div>
     </div>
     <!-- WYSIWYG untuk editor sinopsis -->
