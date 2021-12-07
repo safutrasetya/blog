@@ -25,5 +25,5 @@
    @endforeach
   </div>
 </div>
-
+<!-- tombol favorit -->
 @endsection
