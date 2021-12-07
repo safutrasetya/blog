@@ -1,6 +1,6 @@
 @extends ('layout.template')
 @section('judulhal')
-<title>Profil</title>
+<title>Favoritku</title>
 @endsection
 @section('content')
 <div class="d-flex pt-5 justify-content-center">
@@ -24,6 +24,7 @@
     </ul>
 </div>
 <div class="container">
+  @include('flash-message')
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-favorit" role="tabpanel" aria-labelledby="pills-favorit-tab">
       <div class="row">
@@ -33,8 +34,8 @@
             <img src="/img/{{$artfav->gambar_art}}" class="card-img-top" alt="...">
             <div class="card-body">
               <h3 class="card-title">{{$artfav->judul}}</h3>
-              <p class="card-text">Vincent Willem van Gogh was a Dutch Post-Impressionist painter who posthumously became one of the most famous and influential figures in Western art history.</p>
-              <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+              <p class="card-text isiartikel">{{$artfav->isi}}</p>
+              <a class="stretched-link" href="kategori/artikel/{{$artfav->id_artikel}}" class="btn btn-primary">Baca Selengkapnya</a>
             </div>
           </div>
         </div>
@@ -48,7 +49,7 @@
           <div class="card">
             <img src="/img/{{$katfav->gambar}}" class="card-img-top" alt="...">
             <div class="card-body">
-              <h3 class="card-title">{{$katfav->nama_kat}}</h3>
+              <a class="stretched-link" href="/kategori/{{$katfav->id_kat}}"><h3 class="card-title">{{$katfav->nama_kat}}</h3></a>
               <p class="card-text">Although ‘acrylic’ has become a generic term for any synthetic paint medium, acrylics are a specific type of manmade polymer that has become standard in the commercial paint industry as well as widely used by artists from the mid-20th century.</p>
               <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
             </div>
@@ -66,7 +67,7 @@
             <div class="card-body">
               <h3 class="card-title">{{$authfav->nama}}</h3>
               <p class="card-text"></p>
-              <a href="#" class="btn btn-primary">Selengkapnya</a>
+              <a class="stretched-link" href="/authorprofile/{{$authfav->id_author}}">Selengkapnya</a>
             </div>
           </div>
         </div>
@@ -76,4 +77,14 @@
   </div>
 </div>
 <br><br><br><br>
+<script>
+  $("p.isiartikel").text(function(index, currentText) {
+    return currentText.substr(0, 190)+"...";
+  });
+
+  // var str = 'Some very long string';
+  // if(str.length > 10){
+  //   str = str.substring(0,10)+"...";
+  // }
+</script>
 @endsection

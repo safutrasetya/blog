@@ -26,7 +26,7 @@
         <form  method="GET" action="{{url('/searchall')}} ">
           <div class="row">
             <div class="col-sm-11">
-              <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Search...">
+              <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="cari">
             </div>
             <div class="col-sm-1">
               <button type="submit" class="btn btn-primary mb-2">Search</button>
@@ -46,7 +46,7 @@
                   <img src="/img/{{$artikel->gambar_art}}" class="imgsearch1">
                 </div>
                 <div class="card-body">
-                  <a class="stretched-link" href="#"><p class="h5">{{$artikel->judul}}</p></a>
+                  <a class="stretched-link" href="kategori/artikel/{{$artikel->id_artikel}}"><p class="h5">{{$artikel->judul}}</p></a>
                 </div>
               </div>
               @endforeach
@@ -63,7 +63,7 @@
                   <img src="/img/{{$kategori->gambar}}" class="imgsearch2">
                 </div>
                 <div class="card-body">
-                  <a class="stretched-link" href="#"><p class="h5">{{$kategori->nama_kat}}</p></a>
+                  <a class="stretched-link" href="/kategori/{{$kategori->id_kat}}"><p class="h5">{{$kategori->nama_kat}}</p></a>
                 </div>
               </div>
             </div>
@@ -80,7 +80,7 @@
                   <img src="/img/{{$author->gambar_author}}" class="imgsearch2">
                 </div>
                 <div class="card-body">
-                  <a class="stretched-link" href="#"><p class="h5">{{$author->nama}}</p></a>
+                  <a class="stretched-link" href="/authorprofile/{{$author->id_author}}"><p class="h5">{{$author->nama}}</p></a>
                 </div>
               </div>
             </div>
@@ -95,7 +95,7 @@
 
 <!-- <div class="card" style="margin-left: 20px" >
   <div class="card-header">
-    {{$author->nama}}
+
   </div>
   <div class="card-body">
     <a href="#" class="btn btn-info">details</a>
