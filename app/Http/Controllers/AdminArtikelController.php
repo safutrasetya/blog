@@ -54,10 +54,10 @@ class AdminArtikelController extends Controller
         if ($_SESSION['level'] == 1) {
         $search_text = $_GET['searchi'];
         $hasil = DB::table('table_artikel')->where('judul','LIKE', '%'.$search_text.'%')
-                      ->leftJoin('table_kategori', 'table_artikel.id_kat', '=', 'table_kategori.id_kat')
-                      ->rightJoin('table_author', 'table_artikel.id_author', '=', 'table_author.id_author')
-                      ->rightJoin('table_akun', 'table_author.id_akun_author', '=', 'table_akun.id_akun')
-                      ->paginate(7);
+        ->leftJoin('table_kategori', 'table_artikel.id_kat', '=', 'table_kategori.id_kat')
+        ->rightJoin('table_author', 'table_artikel.id_author', '=', 'table_author.id_author')
+        ->rightJoin('table_akun', 'table_author.id_akun_author', '=', 'table_akun.id_akun')
+        ->paginate(7);
         $listkat = DB::table('table_kategori')->get();
         return view('adminartikelcari',['hasil'=>$hasil,'allkategori'=>$listkat]);
       }
