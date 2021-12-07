@@ -25,9 +25,7 @@ class LoginController extends Controller
     'no_hp' => $request->telpon,
     'level' => 3,
     ]);
-    session_start();
-    $_SESSION['berhasil'] = '1';
-    return redirect('/beranda')->with('berhasil', 'berhasil!')->with('cek','dikirim');
+    return redirect('/login');
   }
 
 public function login(Request $request)
