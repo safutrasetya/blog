@@ -22,6 +22,7 @@
           <a href="kategori/artikel/{{$artikel->id_artikel}}"><img src="/img/{{$artikel->gambar_art}}" style="width: 670px; height: auto;"></a>
           <p class="isiartikel">{{$artikel->isi_art}}</p>
           <a href="/kategori/artikel/{{$artikel->id_artikel}}">(Baca Selengkapnya...)</a>
+          <a href="/artikeledit/{{$artikel->id_artikel}}"><button type="button" class="btn btn-success" name="button">Edit Artikel</button></a>
         </div>
       </div>
     </div>
