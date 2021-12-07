@@ -73,7 +73,7 @@ Route::get('/adminadmincari', function () {
     return view('adminadmincari');
 });
 Route::get('/adminadmincari', [AdminAdminController::class, 'searchadmin']);
-Route::post('downgradelvl', [AdminAkunController::class, 'downgradelvl']);
+Route::post('downgradelvl', [AdminAdminController::class, 'downgradelvl']);
 
 Route::get('/adminartikel', function () {
     return view('adminartikel');

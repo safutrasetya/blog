@@ -14,7 +14,7 @@
       </ul>
       @if($_SESSION['level']==2||$_SESSION['level']==1)
       <div>
-      <a href="" style ="text-decoration: none; color: black"> <img src="/img/plus.jpg" alt="" width="30px" ></a>
+        <a href="/authorartikel/{{$_SESSION['id']}}/artikelbuat" style ="text-decoration: none; color: black"> <img src="/img/plus.jpg" alt="" width="30px" ></a>
       </div>
       @endif
       <div>

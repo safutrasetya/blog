@@ -67,7 +67,7 @@
             <div class="card-body">
               <h3 class="card-title">{{$authfav->nama}}</h3>
               <p class="card-text"></p>
-              <a class="stretched-link" href="/authorprofile/{{$authfav->id_author}}">Selengkapnya</a>
+              <a class="stretched-link" href="/author/{{$authfav->id_author}}">Selengkapnya</a>
             </div>
           </div>
         </div>

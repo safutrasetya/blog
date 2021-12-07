@@ -41,7 +41,9 @@ public function login(Request $request)
     $_SESSION['email'] = $data->email;
     $_SESSION['id'] = $data->id_akun;
     $_SESSION['nohp'] = $data->no_hp;
+    $_SESSION['pass'] = $data->pass;
     $_SESSION['level'] = $data->level;
+    $_SESSION['gambarakun'] =  $data->gambar_akun;
     return redirect('/beranda')->with('berhasil', 'berhasil!')->with('cek','dikirim');
   }
   return redirect('/login')->with('alert2', 'Password Anda Salah !')->with('cek','dikirim');

@@ -58,25 +58,35 @@ class AdminAkunController extends Controller
       session_start();
       if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
         if ($_SESSION['level'] == 1) {
-        $idupdt = $req->idakun;
-        $levelakun = $req->levelakun;
-        $updatelvl = DB::table('table_akun')->where('id_akun',$idupdt)->update(
-          ['level'=>$levelakun]
-        );
-        if($levelakun==2){
-          $searchnama = DB::table('table_akun')->where('id_akun',$idupdt)->first();
-          $instagram = "https://www.instagram.com/";
-          $twitter= "https://twitter.com/";
-          $newauth = array('id_akun_author'=>$idupdt,'instagram'=>$instagram,'twitter'=>$twitter);
-          $addtoauthor = DB::table('table_author')->insert($newauth);
-        }elseif($levelakun==3){
-          $cariauth = DB::table('table_author')->where('id_akun_author',$idupdt)->delete();
-        }elseif($levelakun==1){
-          $searchnama = DB::table('table_akun')->where('id_akun',$idupdt)->first();
-          $newauth = array('id_akun_admin'=>$idupdt);
-          $addtoauthor = DB::table('table_admin')->insert($newauth);
-        }
-        return redirect('adminakun')->with('success','Level akun telah diupdate!!');
+          $idupdt = $req->idakun;
+          $levelakun = $req->levelakun;
+          $updatelvl = DB::table('table_akun')->where('id_akun',$idupdt)->update(
+            ['level'=>$levelakun]
+          );
+          if($levelakun==2){
+            $searchadmin = DB::table('table_admin')
+            ->where('id_akun_admin', $idupdt)->get();
+            if(count($searchadmin)!=0){
+              DB::table('table_admin')->where('id_akun_admin', $idupdt)->delete();
+            }
+            $searchnama = DB::table('table_akun')->where('id_akun',$idupdt)->first();
+            $instagram = "https://www.instagram.com/";
+            $twitter= "https://twitter.com/";
+            $newauth = array('id_akun_author'=>$idupdt,'instagram'=>$instagram,'twitter'=>$twitter);
+            $addtoauthor = DB::table('table_author')->insert($newauth);
+          }elseif($levelakun==3){
+            $cariadmin = DB::table('table_admin')->where('id_akun_admin', $idupdt)->delete();
+            $cariauth = DB::table('table_author')->where('id_akun_author',$idupdt)->delete();
+          }elseif($levelakun==1){
+            $searchnama = DB::table('table_akun')->where('id_akun',$idupdt)->first();
+            $newadmin = array('id_akun_admin'=>$idupdt);
+            $addtoadmin = DB::table('table_admin')->insert($newadmin);
+            $instagram = "https://www.instagram.com/";
+            $twitter= "https://twitter.com/";
+            $newauth = array('id_akun_author'=>$idupdt,'instagram'=>$instagram,'twitter'=>$twitter);
+            $addtoauthor = DB::table('table_author')->insert($newauth);
+          }
+          return redirect('adminakun')->with('success','Level akun telah diupdate!!');
       }
       else {
         return back();

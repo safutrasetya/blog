@@ -53,12 +53,13 @@ class AdminAdminController extends Controller
       session_start();
       if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
         if ($_SESSION['level'] == 1) {
-        $idupdt = $req->idadmin;
+        $idupdt = $req->idakun;
+        $lvl = 3;
         $updatelvl = DB::table('table_akun')->where('id_akun',$idupdt)->update(
-          ['level'=>3]
+          ['level'=>$lvl]
         );
         $deladmin = DB::table('table_admin')
-        ->where('id_admin', $idupdt)
+        ->where('id_akun_admin', $idupdt)
         ->delete();
         return redirect('adminakun')->with('warning','Akun telah didowngrade menjadi regular!');
       }

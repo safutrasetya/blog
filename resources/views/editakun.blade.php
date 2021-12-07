@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <br>
-<form action="/updtprofil" method="POST">
+<form action="/updtprofil" method="POST" enctype="multipart/form-data">
   @csrf
   <div class="row justify-content-center mt-5" style="background-color:grey; padding:3% ;">
     @include('flash-message')
@@ -12,7 +12,11 @@
       <div class="text-center">
         <img  src="img/02.jpg" width=10% style="border-radius: 50%; width: 250px; height: 250px;">
         <br><br>
-        <input class="form-control" type="file">
+        <label>Foto Profil akun</label>
+        <!-- @error('gambarakun')
+            <div class="alert-danger">{{$message}}</div>
+          @enderror -->
+        <input name="gambarakun" class="form-control" type="file">
       </div>
     </div>
     <div class="col-4">
@@ -35,8 +39,28 @@
           <span class="input-group-text" id="inputGroup-sizing-default">Re-Password</span>
           <input name="repassword" id="repassword" value="{{$dataakun->pass}}" type="password" class="form-control">
         </div>
+        @if($_SESSION['level']==2||$_SESSION['level']==1)
+          @foreach($listauthor as $dataauthor)
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Quote</span>
+            <input name="quote" id="" value="{{$dataauthor->quote}}" type="text" class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Instagram</span>
+            <input name="instagram" id="" value="{{$dataauthor->instagram}}" type="text" class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Twitter</span>
+            <input name="twitter" id="" value="{{$dataauthor->twitter}}" type="text" class="form-control">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Tanggal Lahir</span>
+            <input name="tgllahir" id="" value="{{$dataauthor->tanggal_lahir}}" type="date" class="form-control">
+          </div>
+          @endforeach
+        @endif
         <a href='/profil'><button class="mx-2 btn btn-outline-dark btn-md">Discard</button></a>
-        <button type="submit" class="btn btn-success btn-md">POST</button>
+        <button type="submit" class="btn btn-success btn-md">Ubah</button>
       @endforeach
       </div>
     </div>

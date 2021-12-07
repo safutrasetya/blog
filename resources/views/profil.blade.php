@@ -6,6 +6,7 @@
 <div class="container shadow-lg p-3 h-100" style="height: 750px;">
   <div class="jumbotron bg-secondary mx-auto p-5" style="height: 750px;">
     <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
+      @foreach($dataakun as $dataakuns)
       <h1 class="text-center">Profil {{$_SESSION['nama']}}</h1>
     </div>
     <div class="mx-auto">
@@ -14,22 +15,19 @@
           <div class="card mx-auto">
             <div class="card-header">
               <div class="text-center">
-                <img src="img/pfp1.jpg" class="rounded-circle" alt="PFP" width="150px" height="150px">
+                <img src="/img/{{$_SESSION['gambarakun']}}" class="rounded-circle" alt="PFP" width="150px" height="150px">
               </div>
             </div>
             <div class="card-body">
               @include('flash-message')
               <div class="text-left">
-                @foreach($dataakun as $dataakuns)
+
                 <table style="font-size:25px">
                   <tr>
                     <td>Nama </td><td>: {{$_SESSION['nama']}}</td>
                   </tr>
                   <tr>
                     <td>Email </td><td>: {{$_SESSION['email']}}</td>
-                  </tr>
-                  <tr>
-                    <td>Level </td><td>: {{$_SESSION['level']}}</td>
                   </tr>
                 </table>
                 @endforeach
@@ -42,16 +40,26 @@
                   <a style="text-decoration:none; color:white; " href="/favorit"><button  class="btn btn-success" >Show Favorites</button></a>
                 </div>
                 <div class="col-sm-4">
-                  <button class="btn btn-danger float-end">Logout</button>
+                  <a href="functionlogout"><button class="btn btn-danger float-end">Logout</button></a>
                 </div>
               </div>
+              @if($_SESSION['level']==1 || $_SESSION['level']==2)
+                @foreach($dataauth as $dataauth)
+              <div class="row mt-2">
+                <div class="col-sm-8">
+                  <a href="/authorartikel/{{$_SESSION['id']}}/artikelbuat"><button type="button" class="btn btn-info">Artikel Baru</button></a>
+                  <a href="/author/{{$dataauth->id_author}}"><button type="button" class="btn btn-warning">Lihat Profil Authorku</button></a>
+                </div>
+              </div>
+                @endforeach
+              @endif
             </div>
           </div>
         </div>
         <div class="col-sm-6">
           <div class="card">
             <div class="card-header">
-              <h3>Terakhir di sukai</h3>
+              <h3>Artikel terakhir disukai</h3>
             </div>
             <div class="card-body">
               @foreach($datafav as $datafavs)

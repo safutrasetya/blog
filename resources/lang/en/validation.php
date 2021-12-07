@@ -151,6 +151,10 @@ return [
           'required' => 'Gambar Harus Diisi',
           'image' => 'Yang Anda Upload Bukan Gambar'
         ],
+        'gambarakun' =>[
+          'required' => 'Gambar Harus Diisi',
+          'image' => 'Yang Anda Upload Bukan Gambar'
+        ],
         'judulart' =>[
           'required' => 'Judul Harus Diisi',
         ],
