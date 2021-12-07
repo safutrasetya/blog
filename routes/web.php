@@ -46,7 +46,8 @@ Route::get('/author', [KategoriController::class, 'author']);
 Route::get('/author/{id}', [KategoriController::class, 'detailauthor']);
 Route::get('/author/artikel/{id}', [KategoriController::class, 'detailartikel']);
 
-Route::get('/tbhfav_kat', [KategoriController::class, 'tbhfavkat']);
+Route::post('/tbhfav_kat', [KategoriController::class, 'tbhfavkat']);
+Route::post('/hpsfav_kat', [KategoriController::class, 'hpsfavkat']);
 
 Route::get('/artikelbuat', function () {
     return view('artikel_buat');
