@@ -63,7 +63,8 @@ class KategoriController extends Controller
                           if ($_SESSION['berhasil'] == '1') {
                           $artikel = DB::table('table_artikel')->where('id_artikel',$id)->get();
                           $author = DB::table('table_author')->where('id_author',$artikel[0]->id_author)->get();
-                          return view('detailartikel',compact('artikel'),compact('author'));
+                          $akun = DB::table('table_akun')->where('id_akun',$author[0]->id_akun_author)->get();
+                          return view('detailartikel',['artikel'=>$artikel, 'author'=>$author,'akun'=>$akun]);
                         }
                         else {
                           return redirect('/login');
