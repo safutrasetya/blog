@@ -46,7 +46,7 @@
                   <img src="/img/{{$artikel->gambar_art}}" class="imgsearch1">
                 </div>
                 <div class="card-body">
-                  <a class="stretched-link" href="#"><p class="h5">{{$artikel->judul}}</p></a>
+                  <a class="stretched-link" href="kategori/artikel/{{$artikel->id_artikel}}"><p class="h5">{{$artikel->judul}}</p></a>
                 </div>
               </div>
             </div>
@@ -63,7 +63,7 @@
                   <img src="/img/{{$kategori->gambar}}" class="imgsearch2">
                 </div>
                 <div class="card-body">
-                  <a class="stretched-link" href="#"><p class="h5">{{$kategori->nama_kat}}</p></a>
+                  <a class="stretched-link" href="/kategori/{{$kategori->id_kat}}"><p class="h5">{{$kategori->nama_kat}}</p></a>
                 </div>
               </div>
             </div>
@@ -80,7 +80,7 @@
                   <img src="/img/{{$author->gambar_author}}" class="imgsearch2">
                 </div>
                 <div class="card-body">
-                  <a class="stretched-link" href="#"><p class="h5">{{$author->nama}}</p></a>
+                  <a class="stretched-link" href="/authorprofile/{{$author->id_author}}"><p class="h5">{{$author->nama}}</p></a>
                 </div>
               </div>
             </div>

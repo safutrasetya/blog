@@ -118,6 +118,8 @@ Route::post('/simpankategori',[adminKategoriController::class,'upload_proses']);
 Route::post('/deletekategori', [adminKategoriController::class, 'delete']);
 Route::get('searchkategori',[adminKategoriController::class,'search'])->name('search');
 //LINE IMMANUEL
+Route::get('artikeledit/{id}',[ArtikelController::class,'edit']);
+Route::post('/updateartikel',[ArtikelController::class,'update']);
 Route::get('/authorartikel/{idauthor}/artikelbuat',[ArtikelController::class,'tambah']);
 Route::post('/simpanartikel',[ArtikelController::class,'tambah_proses']);
 //LINE YEHEXKIEL

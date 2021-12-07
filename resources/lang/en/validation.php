@@ -147,6 +147,19 @@ return [
         'deskripsi' => [
           'required' => 'Deskripsi Kategori Harus Diisi',
         ],
+        'gambarart' =>[
+          'required' => 'Gambar Harus Diisi',
+          'image' => 'Yang Anda Upload Bukan Gambar'
+        ],
+        'judulart' =>[
+          'required' => 'Judul Harus Diisi',
+        ],
+        'artikelbaru' =>[
+          'required' => 'Isi Artikel Harus Diisi',
+        ],
+        'kategori' =>[
+          'required' => 'Kategori Artikel Harus Diisi',
+        ],
     ],
 
     /*

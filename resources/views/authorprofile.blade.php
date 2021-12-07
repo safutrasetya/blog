@@ -33,7 +33,9 @@
                   <a href=""><button class="btn btn-warning float-end">Masukkan ke favorit</button></a>
                 </div>
                 <div class="col-sm-4 text-left mt-2">
-                <a href="/authorartikel/{{$dataakuns->id_author}}/artikelbuat"><button type="button" class="btn btn-success" name="button">Tambah Artikel</button></a>
+
+                  <a href="/authorartikel/{{$dataakuns->id_author}}/artikelbuat"><button type="button" class="btn btn-success" name="button">Tambah Artikel</button></a>
+                
               </div>
               </div>
             </div>

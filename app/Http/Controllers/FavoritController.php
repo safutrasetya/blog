@@ -30,7 +30,15 @@ class FavoritController extends Controller
           ->orderBy('id_favAuthor', 'desc')
           ->skip(0)->take(4)
           ->get();
-        return view('favorit', ['listartfav'=>$cekartfav , 'listkatfav'=>$cekkatfav, 'listauthfav'=>$cekauthfav]);
+        $countart = count($cekartfav);
+        $countkat = count($cekkatfav);
+        $countauthor = count($cekauthfav);
+        if($countart==0 && $countkat==0 && $countauthor==0){
+          return view('favorit', ['listartfav'=>$cekartfav , 'listkatfav'=>$cekkatfav, 'listauthfav'=>$cekauthfav])->with('success','Anda belum memfavoritkan apapun...');
+        }else{
+          return view('favorit', ['listartfav'=>$cekartfav , 'listkatfav'=>$cekkatfav, 'listauthfav'=>$cekauthfav]);
+
+        }
       }
       else {
         return redirect('/login');
