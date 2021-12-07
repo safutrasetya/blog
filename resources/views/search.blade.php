@@ -38,8 +38,8 @@
           <div class="shadow px-3 my-2">
             <p class="display-4">Artikel</p>
           </div>
+          @foreach($search_artikel as $artikel)
           <div class="row">
-            @foreach($search_artikel as $artikel)
             <div class="col-sm-3">
               <div class="card cardwidth1">
                 <div class="card-head">
@@ -49,14 +49,14 @@
                   <a class="stretched-link" href="#"><p class="h5">{{$artikel->judul}}</p></a>
                 </div>
               </div>
-              @endforeach
             </div>
+            @endforeach
           </div>
           <div class="shadow px-3 my-2 py-1">
             <p class="display-4">Kategori</p>
           </div>
+          @foreach($search_kategori as $kategori)
           <div class="row">
-            @foreach($search_kategori as $kategori)
             <div class="col-sm-3">
               <div class="card cardwidth2">
                 <div class="card-head">
@@ -67,13 +67,13 @@
                 </div>
               </div>
             </div>
-            @endforeach
           </div>
+          @endforeach
           <div class="shadow px-3 my-2" width="100px" >
             <p class="display-4">Author</p>
           </div>
+          @foreach($search_author as $author)
           <div class="row">
-            @foreach($search_author as $author)
             <div class="col-sm-3">
               <div class="card cardwidth2">
                 <div class="card-head">
@@ -84,20 +84,11 @@
                 </div>
               </div>
             </div>
-            @endforeach
           </div>
+          @endforeach
         </div>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>
-
-<!-- <div class="card" style="margin-left: 20px" >
-  <div class="card-header">
-    {{$author->nama}}
-  </div>
-  <div class="card-body">
-    <a href="#" class="btn btn-info">details</a>
-  </div>
-</div> -->
