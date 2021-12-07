@@ -37,7 +37,12 @@
                 </div>
               </div>
             </form>
+            <div class="col-sm-11">
+            <div class="d-flex justify-content-end">
+            <a href="tambahkategori"><button type="button" class="btn btn-success" name="button">Tambah</button></a>
           </div>
+          </div>
+        </div>
         </div>
         <div class="row shadow p-2">
           <table class="table table-bordered text-justify bg-info">

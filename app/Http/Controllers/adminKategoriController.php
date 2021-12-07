@@ -77,7 +77,9 @@ class adminKategoriController extends Controller
     public function update(Request $req)
     {
       $req->validate([
-        'gambar'=>'mimes:jpg,jpeg,png'
+        'nama' => 'required',
+        'gambar'=>'image',
+        'deskripsi' => 'required'
       ]);
 
       $kategori = DB::table('table_kategori')->where('id_kat',$req->id);
@@ -98,7 +100,7 @@ class adminKategoriController extends Controller
           'deskripsi_kat'=>$req->deskripsi
         ]);
       }
-      return redirect('adminkategori');
+      return redirect('adminkategori')->with('success','Kategori berhasil diubah');
 
     }
     public function search(Request $request)
@@ -127,4 +129,29 @@ class adminKategoriController extends Controller
         // return redirect()->route('/adminakun')
         // ->with('success','Akun telah dihapus!');
     }
+    public function upload()
+    {
+      return view('tambahkategori');
+    }
+    public function upload_proses(Request $req)
+    {
+      $req->validate([
+        'nama'  =>'required',
+        'gambar'=>'required|image',
+        'deskripsi'=>'required'
+      ]);
+
+      $gambar = time().'.'.$req->gambar->extension();
+      $req->gambar->move(public_path('img'),$gambar);
+
+      $kategori = DB::table('table_kategori');
+      $kategori->insert([
+        'gambar' =>$gambar,
+        'nama_kat'=>$req->nama,
+        'deskripsi_kat'=>$req->deskripsi
+      ]);
+      return redirect('adminkategori')->with('success','Kategori berhasil ditambah');
+
+    }
+
 }
