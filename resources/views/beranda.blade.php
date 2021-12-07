@@ -14,7 +14,7 @@
         <tr>
             <th><button type="button" class="btn btn-outline-dark">Semua</button></th>
             <th><button type="button" class="btn btn-outline-dark"><a href="/kategori"> Kategori </a></button></th>
-            <th><button type="button" class="btn btn-outline-dark">A - Z</button></th>
+            <th><button type="button" class="btn btn-outline-dark"><a href="/author"></a> Author</button></th>
         </tr>
     </table>
   </div>

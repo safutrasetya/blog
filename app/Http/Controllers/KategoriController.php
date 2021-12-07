@@ -12,15 +12,38 @@ class KategoriController extends Controller
   public function index()
     {
       session_start();
+      if (isset($_SESSION['berhasil'])) {
+
       if ($_SESSION['berhasil'] == '1') {
       $kategori = DB::table('table_kategori')->get();
       return view('kategori',compact('kategori'));
     }
+  }
     else {
       return redirect('/login');
     }
 
       }
+      public function author()
+        {
+          session_start();
+          if (isset($_SESSION['berhasil'])) {
+
+          if ($_SESSION['berhasil'] == '1') {
+          // $author = DB::table('table_author')->get();
+          // $akun = DB::table('table_akun')->where('id_akun',$author[0]->id_akun_author)->get();
+          $author = DB::table('table_author')
+          ->leftJoin('table_akun', 'table_author.id_akun_author', '=', 'table_akun.id_akun')
+          ->select('table_akun.nama', 'table_akun.email','table_author.id_author')
+          ->get();
+          return view('author',['author'=>$author]);
+        }
+      }
+        else {
+          return redirect('/login');
+        }
+
+          }
             public function detailkategori($id)
               {
                 session_start();

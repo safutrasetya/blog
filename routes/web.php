@@ -41,6 +41,8 @@ Route::get('/functionlogout', [LoginController::class, 'logout']);
 Route::get('/kategori', [KategoriController::class, 'index']);
 Route::get('/kategori/{id}', [KategoriController::class, 'detailkategori']);
 Route::get('/kategori/artikel/{id}', [KategoriController::class, 'detailartikel']);
+Route::get('/author', [KategoriController::class, 'author']);
+Route::get('/author/{id}', [KategoriController::class, 'detailauthor']);
 
 Route::get('/artikelbuat', function () {
     return view('artikel_buat');
