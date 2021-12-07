@@ -9,13 +9,13 @@
     <!--WYSIWYG script-->
     <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
     <!--END WYSIWYG-->
-    <title>Artikel Baru</title>
+    <title>Edit Artikel</title>
   </head>
   <body class="bg-dark">
     <div class="jumbotron p-3 h-100" style="height: 750px;">
       <div class="jumbotron bg-secondary mx-auto p-5" style="height: 750px;">
         <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
-          <h1 class="text-center text-light">Artikel Baru</h1>
+          <h1 class="text-center text-light">Edit Artikel</h1>
         </div>
         <form action="/updateartikel" method="POST" enctype="multipart/form-data">
           @csrf
