@@ -19,9 +19,6 @@
         </div>
         <form action="/simpanartikel" method="POST" enctype="multipart/form-data">
           @csrf
-          @foreach($author as $aut)
-          <input type="text" name="id" hidden value="{{$_SESSION['id_author']}}">
-          @endforeach
           <input type="text" name="id" hidden value="{{$_SESSION['id_author']}}">
           <div class="row text-white">
             <div class="col-sm">
