@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-Use  illuminate\Support\Facades\Hash
+Use Illuminate\Support\Facades\Hash;
 use DB;
 use Illuminate\Http\Request;
 use App\Models\table_akun;
