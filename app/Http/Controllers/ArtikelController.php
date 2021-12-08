@@ -103,7 +103,7 @@ class ArtikelController extends Controller
      */
     public function destroy($id)
     {
-      session_start();  
+      session_start();
       if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
         if ($_SESSION['level'] == 2||$_SESSION['level']==1) {
         $artikels =DB::table('table_artikel')->where('id_artikel',$id)->delete();
@@ -139,6 +139,8 @@ class ArtikelController extends Controller
     {
       session_start();
       if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
+
+
         if ($_SESSION['level'] == 2||$_SESSION['level']==1) {
       $kategoris = DB::table('table_kategori')->get();
       $author = DB::table('table_author')->where('id_author',$idauthor)->get();
@@ -177,7 +179,7 @@ class ArtikelController extends Controller
           'isi_art'=>$req->artikelbaru,
           'gambar_art'=>$banner
         ]);
-        return redirect('/authorprofile/'.$idauthor)->with('success','Artikel berhasil ditambah');
+        return redirect('/author/'.$_SESSION['id_author'])->with('success','Artikel berhasil ditambah');
       }else {
         return back();
       }

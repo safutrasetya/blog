@@ -1,7 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+<<<<<<< HEAD
 Use Illuminate\Support\Facades\Hash;
+=======
+Use  illuminate\Support\Facades\Hash;
+>>>>>>> 7aef0227a72e7f19a0baa3918da4d4745f331531
 use DB;
 use Illuminate\Http\Request;
 use App\Models\table_akun;
@@ -30,7 +34,7 @@ class ProfilController extends Controller
     public function authorprofil($idauthor){
       session_start();
       $dataauthor = Db::table('table_author')
-        ->rightjoin('table_akun', 'table_author.id_author', '=', 'table_akun.id_akun')
+        ->rightjoin('table_akun', 'table_author.id_akun_author', '=', 'table_akun.id_akun')
         ->where('id_author', $idauthor)
         ->get();
       $dataartauth = DB::table('table_artikel')
@@ -85,6 +89,7 @@ class ProfilController extends Controller
               'pass'=>$password,
               'gambar_akun'=>$banner
             ]);
+            $_SESSION['gambarakun']=$banner;
             $updtauthor = DB::table('table_author')->where('id_akun_author',$idakun)
             ->update([
               'instagram'=>$instagram,
@@ -100,6 +105,7 @@ class ProfilController extends Controller
               'pass'=>$password,
               'gambar_akun'=>$banner
             ]);
+            $_SESSION['gambarakun']=$banner;
             return redirect('profil')->with('success','A');
           }
     }

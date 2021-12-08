@@ -61,6 +61,9 @@ class AdminAdminController extends Controller
         $deladmin = DB::table('table_admin')
         ->where('id_akun_admin', $idupdt)
         ->delete();
+        $delauthor = DB::table('table_author')
+        ->where('id_akun_author', $idupdt)
+        ->delete();
         return redirect('adminakun')->with('warning','Akun telah didowngrade menjadi regular!');
       }
       else {

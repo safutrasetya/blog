@@ -69,7 +69,9 @@
      @endforeach
    </div>
      <div class="col-12 d-flex justify-content-between">
-     <p style="text-align:justify;">{{$a->isi_art}}</p>
+     <div style="text-align:justify;">
+       {{strip_tags($a->isi_art)}}
+     </div>
    </div>
    @endforeach
   </div>

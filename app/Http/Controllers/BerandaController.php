@@ -12,8 +12,8 @@ class BerandaController extends Controller
       session_start();
       if (isset($_SESSION['berhasil']) &&  $_SESSION['berhasil'] == '1')  {
         $cekartterbaru = DB::table('table_artikel')
-          ->rightjoin('table_akun', 'table_artikel.id_author', '=', 'table_akun.id_akun')
-          ->rightjoin('table_author', 'table_artikel.id_author', '=', 'table_author.id_author')
+          ->leftjoin('table_author', 'table_artikel.id_author', '=', 'table_author.id_author')
+          ->leftjoin('table_akun', 'table_author.id_akun_author', '=', 'table_akun.id_akun')
           ->orderBy('id_artikel', 'desc')
           ->skip(0)->take(10)
           ->get();
