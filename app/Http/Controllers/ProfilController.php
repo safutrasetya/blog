@@ -85,6 +85,7 @@ class ProfilController extends Controller
               'pass'=>$password,
               'gambar_akun'=>$banner
             ]);
+            $_SESSION['gambarakun']=$banner;
             $updtauthor = DB::table('table_author')->where('id_akun_author',$idakun)
             ->update([
               'instagram'=>$instagram,
@@ -100,6 +101,7 @@ class ProfilController extends Controller
               'pass'=>$password,
               'gambar_akun'=>$banner
             ]);
+            $_SESSION['gambarakun']=$banner;
             return redirect('profil')->with('success','A');
           }
     }
