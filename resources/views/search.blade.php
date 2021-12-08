@@ -77,7 +77,7 @@
             <div class="col-sm-3">
               <div class="card cardwidth2">
                 <div class="card-head">
-                  <img src="/img/{{$author->gambar_author}}" class="imgsearch2">
+                  <img src="/img/{{$author->gambar_akun}}" class="imgsearch2">
                 </div>
                 <div class="card-body">
                   <a class="stretched-link" href="/authorprofile/{{$author->id_author}}"><p class="h5">{{$author->nama}}</p></a>
