@@ -43,6 +43,11 @@ public function login(Request $request)
     $_SESSION['nohp'] = $data->no_hp;
     $_SESSION['pass'] = $data->pass;
     $_SESSION['level'] = $data->level;
+    if($_SESSION['level']==1||$_SESSION['level']==2){
+      $cekdb = DB::table('table_author')->where('id_akun_author',$_SESSION['id'])
+      ->first();
+      $_SESSION['id_author']= $cekdb->id_author;
+    }
     $_SESSION['gambarakun'] =  $data->gambar_akun;
     return redirect('/beranda')->with('berhasil', 'berhasil!')->with('cek','dikirim');
   }

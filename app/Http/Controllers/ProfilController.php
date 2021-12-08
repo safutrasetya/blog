@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-Use  illuminate\Support\Facades\Hash
+Use  illuminate\Support\Facades\Hash;
 use DB;
 use Illuminate\Http\Request;
 use App\Models\table_akun;
@@ -30,7 +30,7 @@ class ProfilController extends Controller
     public function authorprofil($idauthor){
       session_start();
       $dataauthor = Db::table('table_author')
-        ->rightjoin('table_akun', 'table_author.id_author', '=', 'table_akun.id_akun')
+        ->rightjoin('table_akun', 'table_author.id_akun_author', '=', 'table_akun.id_akun')
         ->where('id_author', $idauthor)
         ->get();
       $dataartauth = DB::table('table_artikel')

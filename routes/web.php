@@ -29,7 +29,7 @@ use App\Http\Controllers\ArtikelController;
 // Route::get('/profil', function () {
 //     return view('profil');
 // });
-Route::resource('/',ProfilController::class);
+Route::get('/', [LoginController::class, 'HalamanLogin']);
 Route::resource('/profil',ProfilController::class);
 Route::get('/editprofil',[ProfilController::class, 'editprofil']);
 Route::post('/updtprofil',[ProfilController::class, 'updateprofil'] );
