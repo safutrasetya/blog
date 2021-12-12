@@ -75,7 +75,7 @@
 
         </form>
         <!-- <div class="row col-sm-12 justify-content-end mt-1"> -->
-        <a href="/beranda"><button class="mx-2 btn btn-dark btn-lg text-white">Discard</button></a>
+        <a href="/authorprofile"><button class="mx-2 btn btn-dark btn-lg text-white">Discard</button></a>
       </div>
       </div>
     </div>

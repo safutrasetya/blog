@@ -86,7 +86,7 @@ class ArtikelController extends Controller
           'gambar_art'=>$banner,
         ]);
       }
-        return redirect('/authorprofile/'.$idauthor)->with('success','Artikel berhasil diperbarui');
+        return redirect('/authorprofile')->with('success','Artikel berhasil diperbarui');
     }else{
       return back();
     }

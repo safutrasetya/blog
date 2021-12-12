@@ -101,7 +101,7 @@ Route::resource('/favorit',FavoritController::class);
 //     return view('artikel_edit');
 // });
 Route::resource('/beranda',BerandaController::class);
-Route::get('/authorprofile/{idauthor}', [ProfilController::class, 'authorprofil']);
+Route::get('/authorprofile', [ProfilController::class, 'authorprofil']);
 
 Route::get('/search', function () {
     return view('search');
@@ -124,7 +124,7 @@ Route::get('/artikelhapus/{id}',[ArtikelController::class,'destroy']);
 Route::get('/authorartikel/{idauthor}/artikelbuat',[ArtikelController::class,'tambah']);
 Route::post('/simpanartikel',[ArtikelController::class,'tambah_proses']);
 //LINE YEHEXKIEL
-Route::get('/authorartikel/{idauthor}', [ArtikelAuthorController::class, 'authorartikel']);
+Route::get('/authorartikel', [ArtikelAuthorController::class, 'authorartikel']);
 Route::get('/searchall', [AllSearchController::class, 'allsearch']);
 //LINE RIZKI
 // Route::get('/favorit',function(){

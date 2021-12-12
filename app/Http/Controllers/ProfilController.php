@@ -27,14 +27,14 @@ class ProfilController extends Controller
       return view('profil', ['dataakun'=>$dataakun,'datafav'=>$datafav,'dataauth'=>$dataauth] );
     }
 
-    public function authorprofil($idauthor){
+    public function authorprofil(){
       session_start();
       $dataauthor = Db::table('table_author')
         ->rightjoin('table_akun', 'table_author.id_akun_author', '=', 'table_akun.id_akun')
-        ->where('id_author', $idauthor)
+        ->where('id_author', $_SESSION['id_author'])
         ->get();
       $dataartauth = DB::table('table_artikel')
-        ->where('id_author', $idauthor)
+        ->where('id_author', $_SESSION['id_author'])
         ->orderBy('id_artikel', 'desc')
         ->skip(0)->take(2)
         ->get();

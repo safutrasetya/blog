@@ -18,7 +18,7 @@ class BerandaController extends Controller
           ->skip(0)->take(10)
           ->get();
 
-        return view('beranda', ['artikelterbaru'=>$cekartterbaru])->with('berhasil', 'berhasil!');
+        return view('/beranda', ['artikelterbaru'=>$cekartterbaru])->with('berhasil', 'berhasil!');
       }
       else{
         return redirect('/login');

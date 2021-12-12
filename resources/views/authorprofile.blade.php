@@ -27,7 +27,7 @@
             <div class="card-footer">
               <div class="row">
                 <div class="col-sm-7 text-left">
-                  <a style="text-decoration:none; color:white; " href="/author/{{$dataakuns->id_author}}"><button  class="btn btn-success" >Tampilkan semua artikel</button></a>
+                  <a style="text-decoration:none; color:white; " href="/authorartikel"><button  class="btn btn-success" >Tampilkan semua artikel</button></a>
                 </div>
                 <div class="col-sm-5">
                   <a href=""><button class="btn btn-warning float-end">Masukkan ke favorit</button></a>
